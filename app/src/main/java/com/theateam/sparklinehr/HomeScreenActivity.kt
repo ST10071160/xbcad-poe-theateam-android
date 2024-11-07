@@ -57,6 +57,34 @@ class HomeScreenActivity : AppCompatActivity() {
         // Name in Action Bar
         supportActionBar?.setTitle("Welcome to SparkLine HR")
 
+
+        binding.homeScreenSelfServiceBtn.setOnClickListener{
+            val intentSelfService = Intent(this@HomeScreenActivity, SelfServiceActivity::class.java)
+            startActivity(intentSelfService)
+        }
+
+        binding.homeScreenSubmitTimesheetBtn.setOnClickListener{
+            val intentSubmitTimesheet = Intent(this@HomeScreenActivity, SubmitTimesheetActivity::class.java)
+            startActivity(intentSubmitTimesheet)
+        }
+
+        binding.homeScreenDevelopmentGoalsBtn.setOnClickListener{
+            val intentDevelopmentGoals = Intent(this@HomeScreenActivity, DevelopmentAndGoalsMenuActivity::class.java)
+            startActivity(intentDevelopmentGoals)
+        }
+
+        binding.homeScreenLeaveRequestBtn.setOnClickListener{
+            val intentSubmitTimesheet = Intent(this@HomeScreenActivity, LeaveRequestActivity::class.java)
+            startActivity(intentSubmitTimesheet)
+        }
+
+        binding.homeScreenIncidentFeedbackBtn.setOnClickListener{
+            val intentIncidentReporting = Intent(this@HomeScreenActivity, IncidentReportingActivity::class.java)
+            startActivity(intentIncidentReporting)
+        }
+
+
+
     }
 
     // Logout Dialog:

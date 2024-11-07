@@ -5,20 +5,20 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.theateam.sparklinehr.databinding.ActivityUpdatePersonalInformationBinding
+import com.theateam.sparklinehr.databinding.ActivityLeaveRequestBinding
 
-class UpdatePersonalInformationActivity : AppCompatActivity() {
+class LeaveRequestActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityUpdatePersonalInformationBinding
+    private lateinit var binding : ActivityLeaveRequestBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
-        binding = ActivityUpdatePersonalInformationBinding.inflate(layoutInflater)
+        binding = ActivityLeaveRequestBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        setContentView(R.layout.activity_update_personal_information)
+//        setContentView(R.layout.activity_leave_request)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -28,5 +28,6 @@ class UpdatePersonalInformationActivity : AppCompatActivity() {
         binding.backBtn.setOnClickListener{
             finish()
         }
+
     }
 }
