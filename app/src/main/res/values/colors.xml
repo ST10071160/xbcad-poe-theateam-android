@@ -4,5 +4,9 @@
     <color name="white">#FFFFFFFF</color>
     <color name="blue_gradient">#6FADEB</color>
     <color name="blue_icon">#006AEB</color>
+    <color name="app_name_orange">#FF7900</color>
+    <color name="blue_icon_center">#a6cbf8</color>
+    <color name="figma_blue">#00BFFF</color>
+
 
 </resources>

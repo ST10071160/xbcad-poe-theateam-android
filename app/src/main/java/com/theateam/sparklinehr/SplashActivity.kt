@@ -30,7 +30,7 @@ class SplashActivity : AppCompatActivity() {
 
         // Delay to move to MainActivity after total 3 seconds
         Handler(Looper.getMainLooper()).postDelayed({
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }, 3500) // Total splash time: 3 seconds
     }
