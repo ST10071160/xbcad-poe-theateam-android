@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#8000BFFF"
+    android:orientation="vertical"
+    tools:context=".ViewPayslipHistoryActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#F5883F"
+        android:gravity="center_vertical"
+        android:backgroundTint="@color/figma_blue"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/about_back_btn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/back_arrow"
+            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+        <TextView
+            android:id="@+id/about_heading_textView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="70dp"
+            android:layout_marginBottom="10dp"
+            android:text="View Payslip History"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            tools:ignore="RtlCompat" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/top_cornered">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:layout_marginTop="70dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:orientation="vertical"
+            android:background="@drawable/all_corneres_rounded">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:background="@drawable/top_cornered_blue">
+
+                <TextView
+                    android:id="@+id/viewPayslipHistoryPayslipTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="20dp"
+                    android:text="Payslips"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:paddingTop="10dp">
+                </TextView>
+
+                <Spinner
+                    android:id="@+id/viewPayslipHistorySpinner"
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="110dp"
+                    android:background="@drawable/all_corneres_rounded"
+                    tools:ignore="TouchTargetSizeCheck">
+                </Spinner>
+            </LinearLayout>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/viewPayslipHistoryRecyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

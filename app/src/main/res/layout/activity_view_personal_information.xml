@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#8000BFFF"
+    android:orientation="vertical"
+    tools:context=".ViewPersonalInformationActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#F5883F"
+            android:gravity="center_vertical"
+            android:backgroundTint="@color/figma_blue"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/about_back_btn"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/back_arrow"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+            <TextView
+                android:id="@+id/about_heading_textView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="70dp"
+                android:layout_marginBottom="10dp"
+                android:text="Personal Information"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                tools:ignore="RtlCompat" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@drawable/top_cornered" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="25dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="25dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/viewPersonalInfoFirstNameHeadingTextView"
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:text="First Name:"
+                    android:layout_marginEnd="20dp"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/viewPersonalInfoFirstNameTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Test 1"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/viewPersonalInfoDivider1"
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:background="#FF7F00" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="25dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="25dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/viewPersonalInfoLastNameHeadingTextView"
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:text="Last Name:"
+                    android:layout_marginEnd="20dp"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/viewPersonalInfoLastNameTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Test 2"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/viewPersonalInfoDivider2"
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:background="#FF7F00" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="25dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="25dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/viewPersonalInfoJobTitleHeadingTextView"
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:text="Job Title:"
+                    android:layout_marginEnd="20dp"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/viewPersonalInfoJobTitleTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Test 3"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/viewPersonalInfoDivider3"
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:background="#FF7F00" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="25dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="25dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/viewPersonalInfoWorkEmailHeadingTextView"
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:text="Work Email:"
+                    android:layout_marginEnd="20dp"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/viewPersonalInfoWorkEmailTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Test 4"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/viewPersonalInfoDivider4"
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:background="#FF7F00" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="25dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="25dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/viewPersonalInfoPhoneNumHeadingTextView"
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:text="Phone Number:"
+                    android:layout_marginEnd="20dp"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/viewPersonalInfoPhoneNumTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Test 5"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/viewPersonalInfoDivider5"
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:background="#FF7F00" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <!-- Floating Action Button at the bottom right -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingBtnAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:src="@drawable/edit_icon"
+        android:contentDescription="Add new meal"
+        app:backgroundTint="@color/figma_blue"
+        app:fabSize="normal" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,587 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#8000BFFF"
+    android:orientation="vertical"
+    tools:context=".ViewSelectedPayslipActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#F5883F"
+        android:gravity="center_vertical"
+        android:backgroundTint="@color/figma_blue"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/about_back_btn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/back_arrow"
+            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+        <TextView
+            android:id="@+id/about_heading_textView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="70dp"
+            android:layout_marginBottom="10dp"
+            android:text="Payslip"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            tools:ignore="RtlCompat" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/top_cornered">
+
+        <TextView
+            android:id="@+id/viewSelectedPayslipSpecificMonthTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="25dp"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:text="Payslip for: Insert Date Here">
+        </TextView>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/all_cornered_stroke_orange"
+                    android:layout_margin="25dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="150dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/viewSelectedPayslipEmployeeNameHeadingTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Employee Name:"
+                            android:textStyle="bold">
+                        </TextView>
+
+                        <TextView
+                            android:id="@+id/viewSelectedPayslipEmployeeNumberHeadingTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="Employee Number:"
+                            android:textStyle="bold">
+
+                        </TextView>
+
+                        <TextView
+                            android:id="@+id/viewSelectedPayslipPositionHeadingTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="Position:"
+                            android:textStyle="bold">
+
+                        </TextView>
+
+                        <TextView
+                            android:id="@+id/viewSelectedPayslipTaxNumberHeadingTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="Tax Number:"
+                            android:textStyle="bold">
+                        </TextView>
+
+                        <TextView
+                            android:id="@+id/viewSelectedPayslipDateOfIssueHeadingTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="Date of Issue:"
+                            android:textStyle="bold">
+                        </TextView>
+
+                        <TextView
+                            android:id="@+id/viewSelectedPayslipPeriodHeadingTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="Period:"
+                            android:textStyle="bold">
+                        </TextView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="150dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/viewSelectedPayslipEmployeeNameTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="">
+                        </TextView>
+
+                        <TextView
+                            android:id="@+id/viewSelectedPayslipEmployeeNumberTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="">
+                        </TextView>
+
+                        <TextView
+                            android:id="@+id/viewSelectedPayslipPositionTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="">
+                        </TextView>
+
+                        <TextView
+                            android:id="@+id/viewSelectedPayslipTaxNumberTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="">
+                        </TextView>
+
+                        <TextView
+                            android:id="@+id/viewSelectedPayslipDateOfIssueTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="">
+                        </TextView>
+
+                        <TextView
+                            android:id="@+id/viewSelectedPayslipPeriodTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="">
+                        </TextView>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/viewSelectedPayslipEarningsHeadingTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginEnd="25dp"
+                    android:text="Earnings:"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:layout_gravity="start" />
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:background="@drawable/all_cornered_stroke_orange"
+                    android:stretchColumns="1"
+                    android:divider="@drawable/table_divider"
+                    android:showDividers="middle"
+                    android:layout_margin="25dp">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#f5f5f5">
+
+                        <TextView
+                            android:id="@+id/viewSelectedPayslipEarningsDescriptionHeadingTextView"
+                            android:text="Description:"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:padding="8dp"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/viewSelectedPayslipEarningsAmountHeadingTextView"
+                            android:text="Amount (ZAR)"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:layout_marginEnd="10dp"
+                            android:padding="8dp"
+                            android:gravity="end"
+                            android:textSize="16sp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/viewSelectedPayslipBasicSalaryHeadingTextView"
+                            android:text="Basic Salary:"
+                            android:textColor="@color/black"
+                            android:padding="8dp"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/viewSelectedPayslipBasicSalaryValueTextView"
+                            android:text="Insert Basic Salary Here"
+                            android:textColor="@color/black"
+                            android:padding="8dp"
+                            android:gravity="end"
+                            android:textSize="16sp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#f5f5f5">
+
+                        <TextView
+                            android:id="@+id/viewSelectedPayslipTotalEarningsHeadingTextView"
+                            android:text="Total Earnings:"
+                            android:textColor="@color/black"
+                            android:padding="8dp"
+                            android:textSize="16sp"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:id="@+id/viewSelectedPayslipTotalEarningsValueTextView"
+                            android:text="Insert Total Earnings Here"
+                            android:textColor="@color/black"
+                            android:padding="8dp"
+                            android:gravity="end"
+                            android:textSize="16sp"
+                            android:textStyle="bold"/>
+                    </TableRow>
+                </TableLayout>
+
+                <TextView
+                    android:id="@+id/MonthlyPayshipDeductionsTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginEnd="25dp"
+                    android:text="Deductions:"
+                    android:layout_span="2"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:paddingBottom="8dp"
+                    android:textSize="18sp"
+                    android:layout_gravity="start" />
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:background="@drawable/all_cornered_stroke_orange"
+                    android:stretchColumns="1"
+                    android:divider="@drawable/table_divider"
+                    android:showDividers="middle"
+                    android:layout_margin="25dp">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#f5f5f5">
+
+                        <TextView
+                            android:id="@+id/viewSelectedPayslipDeductionsDescriptionHeadingTextView"
+                            android:text="Description:"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:padding="8dp"
+                            android:textSize="16sp" />
+                        <TextView
+                            android:id="@+id/viewSelectedPayslipDeductionsAmountHeadingTextView"
+                            android:text="Amount (ZAR)"
+                            android:layout_weight="1"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:padding="8dp"
+                            android:gravity="end"
+                            android:textSize="16sp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/viewSelectedPayslipPAYEHeadingTextView"
+                            android:text="PAYE (Tax):"
+                            android:layout_weight="1"
+                            android:textColor="@color/black"
+                            android:padding="8dp"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/viewSelectedPayslipPAYEValueTextView"
+                            android:text="Enter PAYE Here"
+                            android:layout_weight="1"
+                            android:textColor="@color/black"
+                            android:padding="8dp"
+                            android:gravity="end"
+                            android:textSize="16sp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/viewSelectedPayslipUIFHeadingTextView"
+                            android:text="UIF:"
+                            android:layout_weight="1"
+                            android:textColor="@color/black"
+                            android:padding="8dp"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/viewSelectedPayslipUIFValueTextView"
+                            android:text="Insert UIF Here"
+                            android:layout_weight="1"
+                            android:textColor="@color/black"
+                            android:padding="8dp"
+                            android:gravity="end"
+                            android:textSize="16sp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/viewSelectedPayslipMedicalAidHeadingTextView"
+                            android:text="Medical Aid Contribution:"
+                            android:layout_weight="1"
+                            android:textColor="@color/black"
+                            android:padding="8dp"
+                            android:textSize="16sp" />
+                        <TextView
+                            android:id="@+id/viewSelectedPayslipMedicalAidValueTextView"
+                            android:text="Insert Medical Aid Here"
+                            android:layout_weight="1"
+                            android:textColor="@color/black"
+                            android:padding="8dp"
+                            android:gravity="end"
+                            android:textSize="16sp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/viewSelectedPayslipPensionFundHeadingTextView"
+                            android:text="Pension Fund:"
+                            android:layout_weight="1"
+                            android:textColor="@color/black"
+                            android:padding="8dp"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/viewSelectedPayslipPensionFundValueTextView"
+                            android:text="Insert Pension Here"
+                            android:layout_weight="1"
+                            android:textColor="@color/black"
+                            android:padding="8dp"
+                            android:gravity="end"
+                            android:textSize="16sp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#f5f5f5">
+
+                        <TextView
+                            android:id="@+id/viewSelectedPayslipTotalDeductionsHeadingTextView"
+                            android:layout_weight="1"
+                            android:padding="8dp"
+                            android:text="Total Deductions:"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/viewSelectedPayslipTotalDeductionsValueTextView"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:padding="8dp"
+                            android:text="Insert Total Deductions Here"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </TableRow>
+                </TableLayout>
+
+                <TextView
+                    android:id="@+id/viewSelectedPayslipNetPayHeadingTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginEnd="25dp"
+                    android:text="Net Pay:"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:layout_gravity="start" />
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:background="@drawable/all_cornered_stroke_orange"
+                    android:stretchColumns="1"
+                    android:divider="@drawable/table_divider"
+                    android:showDividers="middle"
+                    android:layout_margin="25dp">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#f5f5f5">
+
+                        <TextView
+                            android:id="@+id/viewSelectedPayslipNetPayDescriptionHeadingTextView"
+                            android:text="Description:"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:padding="8dp"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/viewSelectedPayslipNetPayAmountHeadingTextView"
+                            android:text="Amount (ZAR)"
+                            android:layout_marginStart="0dp"
+                            android:layout_weight="1"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:padding="8dp"
+                            android:gravity="end"
+                            android:textSize="16sp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:id="@+id/MviewSelectedPayslipNetHeadingTextView"
+                            android:text="Net Pay:"
+                            android:layout_weight="1"
+                            android:textColor="@color/black"
+                            android:padding="8dp"
+                            android:textSize="16sp" />
+                        <TextView
+                            android:id="@+id/viewSelectedPayslipNetPayValueTextView"
+                            android:text="Net Pay Value Here"
+                            android:layout_weight="1"
+                            android:textColor="@color/black"
+                            android:padding="8dp"
+                            android:gravity="end"
+                            android:textSize="16sp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#f5f5f5">
+
+                        <TextView
+                            android:id="@+id/viewSelectedPayslipEmployerSignatureHeadingTextView"
+                            android:text="Employer Signature:"
+                            android:layout_span="2"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:padding="8dp"
+                            android:textSize="16sp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/viewSelectedPayslipSignatureLineTextView"
+                            android:text="__________________________"
+                            android:layout_span="2"
+                            android:textColor="@color/black"
+                            android:padding="8dp"
+                            android:textSize="16sp"
+                            android:gravity="start" />
+                    </TableRow>
+                </TableLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/viewSelectedPayslipDownloadSlipHeadingTextView"
+                        android:layout_width="280dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="Download Payslip:"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:textSize="20sp">
+                    </TextView>
+
+                    <Button
+                        android:id="@+id/viewSelectedPayslipDownloadPayslipBtn"
+                        style="@style/Widget.AppCompat.Button.Colored"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginBottom="20dp"
+                        android:background="@drawable/baseline_file_download_24"
+                        tools:ignore="SpeakableTextPresentCheck">
+                    </Button>
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</LinearLayout>
