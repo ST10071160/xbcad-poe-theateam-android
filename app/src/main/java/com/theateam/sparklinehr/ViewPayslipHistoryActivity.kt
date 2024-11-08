@@ -1,15 +1,32 @@
 package com.theateam.sparklinehr
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.theateam.sparklinehr.databinding.ActivityViewPayslipHistoryBinding
 
 class ViewPayslipHistoryActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityViewPayslipHistoryBinding
+
+    private var payslipList = ArrayList<Payslip>()
+
+
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var payslipAdapter: PayslipAdapter
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,8 +42,71 @@ class ViewPayslipHistoryActivity : AppCompatActivity() {
             insets
         }
 
+        recyclerView = findViewById(R.id.viewPayslipHistoryRecyclerView)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+
+        loadPayslips()
+
+        payslipAdapter = PayslipAdapter(payslipList) { payslip ->
+            if (payslip != null) {
+                val intent = Intent(this, ViewSelectedPayslipActivity::class.java)
+                intent.putExtra("payslip", payslip)
+                Log.d("PayslipIntent", "Passing Payslip: $payslip") // Debugging
+                startActivity(intent)
+            } else {
+                Log.e("PayslipIntent", "Payslip is null!")
+            }
+        }
+
+        recyclerView.adapter = payslipAdapter
+
         binding.backBtn.setOnClickListener{
             finish()
         }
     }
+
+
+    private fun loadPayslips() {
+        val database = FirebaseDatabase.getInstance()
+        val dbRef = database.getReference("SparkLineHR")
+
+        // Hardcoded employee number
+        val userNum = "EMP12345"
+
+        // Fetch all payslips for the given employee
+        dbRef.child("User Payslip Info").addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    // Clear the existing data
+                    payslipList.clear()
+
+                    for (childSnapshot in dataSnapshot.children) {
+                        val key = childSnapshot.key
+                        if (key != null && key.startsWith(userNum)) {
+                            // Get the payslip data for this key
+                            val payslip = childSnapshot.getValue(Payslip::class.java)
+                            if (payslip != null) {
+                                payslipList.add(payslip)
+                                Log.d("UserInfo", "Payslip found: $payslip")
+                            } else {
+                                Log.e("UserInfo", "No data found for key: $key")
+                            }
+                        }
+                    }
+
+                    // Notify the adapter to update the UI
+                    payslipAdapter.notifyDataSetChanged()
+                    Log.d("FIREBASE_SUCCESS", "Payslips fetched successfully: $payslipList")
+                } else {
+                    Log.e("FIREBASE_ERROR", "No data found in the database.")
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Log.e("FIREBASE_FAILURE", "Failed to fetch data: ${error.message}")
+            }
+        })
+    }
+
+
 }
