@@ -9,4 +9,8 @@
     <color name="figma_blue">#00BFFF</color>
 
 
+    <color name="textColorDefault">#000000</color> <!-- Black text for light mode -->
+    <color name="textColorInverse">#FFFFFF</color> <!-- White text for dark mode (for reference) -->
+
+
 </resources>

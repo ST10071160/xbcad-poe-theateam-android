@@ -76,7 +76,7 @@
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_weight="2"
-                        android:layout_height="150dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
@@ -87,6 +87,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Employee Name:"
+                            android:layout_marginTop="10dp"
                             android:textStyle="bold">
                         </TextView>
 
@@ -94,7 +95,7 @@
                             android:id="@+id/viewSelectedPayslipEmployeeNumberHeadingTextView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
+                            android:layout_marginTop="10dp"
                             android:text="Employee Number:"
                             android:textStyle="bold">
 
@@ -104,7 +105,7 @@
                             android:id="@+id/viewSelectedPayslipPositionHeadingTextView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
+                            android:layout_marginTop="10dp"
                             android:text="Position:"
                             android:textStyle="bold">
 
@@ -114,7 +115,7 @@
                             android:id="@+id/viewSelectedPayslipTaxNumberHeadingTextView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
+                            android:layout_marginTop="10dp"
                             android:text="Tax Number:"
                             android:textStyle="bold">
                         </TextView>
@@ -123,7 +124,8 @@
                             android:id="@+id/viewSelectedPayslipDateOfIssueHeadingTextView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:text="Date of Issue:"
                             android:textStyle="bold">
                         </TextView>
@@ -141,7 +143,7 @@
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_weight="2"
-                        android:layout_height="150dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
                         android:orientation="vertical">
@@ -150,6 +152,7 @@
                             android:id="@+id/viewSelectedPayslipEmployeeNameTextView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
                             android:text="">
                         </TextView>
 
@@ -157,7 +160,7 @@
                             android:id="@+id/viewSelectedPayslipEmployeeNumberTextView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
+                            android:layout_marginTop="10dp"
                             android:text="">
                         </TextView>
 
@@ -165,7 +168,7 @@
                             android:id="@+id/viewSelectedPayslipPositionTextView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
+                            android:layout_marginTop="2dp"
                             android:text="">
                         </TextView>
 
@@ -173,7 +176,7 @@
                             android:id="@+id/viewSelectedPayslipTaxNumberTextView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
+                            android:layout_marginTop="2dp"
                             android:text="">
                         </TextView>
 
@@ -181,7 +184,7 @@
                             android:id="@+id/viewSelectedPayslipDateOfIssueTextView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
+                            android:layout_marginTop="10dp"
                             android:text="">
                         </TextView>
 
@@ -189,7 +192,7 @@
                             android:id="@+id/viewSelectedPayslipPeriodTextView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
+                            android:layout_marginTop="10dp"
                             android:text="">
                         </TextView>
                     </LinearLayout>
