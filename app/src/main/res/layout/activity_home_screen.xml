@@ -37,85 +37,80 @@
 <!--            android:textStyle="bold" />-->
 <!--    </LinearLayout>-->
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center"
         android:layout_marginTop="100dp"
-        android:background="@drawable/top_cornered" >
+        android:background="@drawable/top_cornered"
+        android:gravity="center"
+        android:orientation="vertical">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/homeScreenSelfServiceBtn"
             android:layout_width="match_parent"
             android:layout_height="80dp"
-            android:layout_marginLeft="75dp"
-            android:layout_marginRight="75dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="20dp"
             android:background="@drawable/square_btn_shape"
             android:backgroundTint="@null"
-            android:textAllCaps="false"
-            android:textSize="18sp"
             android:text="Self Service Portal"
-            android:textColor="#FFFFFF" />
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/homeScreenSubmitTimesheetBtn"
             android:layout_width="match_parent"
             android:layout_height="80dp"
-            android:layout_marginLeft="75dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginRight="75dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="20dp"
             android:background="@drawable/square_btn_shape"
             android:backgroundTint="@null"
-            android:textAllCaps="false"
-            android:textSize="18sp"
             android:text="Submit Timesheet"
-            android:textColor="#FFFFFF"/>
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/homeScreenLeaveRequestBtn"
             android:layout_width="match_parent"
             android:layout_height="80dp"
-            android:layout_marginLeft="75dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginRight="75dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="20dp"
             android:background="@drawable/square_btn_shape"
             android:backgroundTint="@null"
-            android:textAllCaps="false"
-            android:textSize="18sp"
             android:text="Leave Request"
-            android:textColor="#FFFFFF"/>
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/homeScreenDevelopmentGoalsBtn"
             android:layout_width="match_parent"
             android:layout_height="80dp"
-            android:layout_marginLeft="75dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginRight="75dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="20dp"
             android:background="@drawable/square_btn_shape"
             android:backgroundTint="@null"
-            android:textAllCaps="false"
-            android:textSize="18sp"
             android:text="Development and Goals"
-            android:textColor="#FFFFFF"/>
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/homeScreenIncidentFeedbackBtn"
             android:layout_width="match_parent"
             android:layout_height="80dp"
-            android:layout_marginLeft="75dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginRight="75dp"
-            android:layout_marginBottom="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="20dp"
             android:background="@drawable/square_btn_shape"
             android:backgroundTint="@null"
-            android:textAllCaps="false"
-            android:textSize="18sp"
             android:text="Incident and Feedback Reporting"
-            android:textColor="#FFFFFF"/>
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
     </LinearLayout>
-
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navView"

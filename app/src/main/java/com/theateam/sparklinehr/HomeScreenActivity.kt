@@ -64,7 +64,7 @@ class HomeScreenActivity : AppCompatActivity() {
         }
 
         binding.homeScreenSubmitTimesheetBtn.setOnClickListener{
-            val intentSubmitTimesheet = Intent(this@HomeScreenActivity, SubmitTimesheetActivity::class.java)
+            val intentSubmitTimesheet = Intent(this@HomeScreenActivity, SubmitWeekTimesheetActivity::class.java)
             startActivity(intentSubmitTimesheet)
         }
 
