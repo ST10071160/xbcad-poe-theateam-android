@@ -22,6 +22,7 @@ class SubmitWeekTimesheetActivity : AppCompatActivity() {
     private lateinit var hoursSpinners: List<Spinner>
     private lateinit var previousWeekButton: ImageButton
     private lateinit var nextWeekButton: ImageButton
+    private lateinit var backbtn: ImageButton
 
     private val currentWeek: Calendar = Calendar.getInstance()
     private var displayedWeek: Calendar = Calendar.getInstance()
@@ -38,9 +39,14 @@ class SubmitWeekTimesheetActivity : AppCompatActivity() {
         // Initialize views
         weekDatesTextView = findViewById(R.id.weekDatesTextView)
         submitButton = findViewById(R.id.submitButton)
+        backbtn = findViewById(R.id.back_btn)
 
         previousWeekButton = findViewById(R.id.previousWeekButton)
         nextWeekButton = findViewById(R.id.nextWeekButton)
+
+        backbtn.setOnClickListener {
+            finish()
+        }
 
         dayDateTextViews = listOf(
             findViewById(R.id.mondayDateTextView),
