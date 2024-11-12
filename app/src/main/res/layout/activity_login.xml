@@ -77,11 +77,11 @@
 
                 <TextView
                     android:id="@+id/loginScreenUsernameTextView"
-                    android:layout_width="100dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="30dp"
                     android:layout_marginHorizontal="30dp"
                     android:layout_marginTop="100dp"
-                    android:text="Username:"
+                    android:text="Employee Number:"
 
                     android:textSize="18sp" />
 
