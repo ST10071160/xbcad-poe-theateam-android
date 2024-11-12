@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.theateam.sparklinehr" />
+                  <option name="mobileSdkAppId" value="1:484602032558:android:fef78bf7d8bf635271183f" />
+                  <option name="projectId" value="sparklinehr-3a089" />
+                  <option name="projectNumber" value="484602032558" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

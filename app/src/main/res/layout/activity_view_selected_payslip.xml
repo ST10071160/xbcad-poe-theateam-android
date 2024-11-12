@@ -71,131 +71,168 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/all_cornered_stroke_orange"
                     android:layout_margin="25dp"
-                    android:orientation="horizontal">
+                    android:orientation="vertical">
+
 
                     <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_weight="2"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:orientation="vertical">
+                        android:layout_margin="10dp"
+                        android:orientation="horizontal">
 
                         <TextView
                             android:id="@+id/viewSelectedPayslipEmployeeNameHeadingTextView"
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:text="Employee Name:"
-                            android:layout_marginTop="10dp"
+                            android:layout_weight="1"
                             android:textStyle="bold">
                         </TextView>
-
-                        <TextView
-                            android:id="@+id/viewSelectedPayslipEmployeeNumberHeadingTextView"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:text="Employee Number:"
-                            android:textStyle="bold">
-
-                        </TextView>
-
-                        <TextView
-                            android:id="@+id/viewSelectedPayslipPositionHeadingTextView"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:text="Position:"
-                            android:textStyle="bold">
-
-                        </TextView>
-
-                        <TextView
-                            android:id="@+id/viewSelectedPayslipTaxNumberHeadingTextView"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:text="Tax Number:"
-                            android:textStyle="bold">
-                        </TextView>
-
-                        <TextView
-                            android:id="@+id/viewSelectedPayslipDateOfIssueHeadingTextView"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginBottom="10dp"
-                            android:text="Date of Issue:"
-                            android:textStyle="bold">
-                        </TextView>
-
-                        <TextView
-                            android:id="@+id/viewSelectedPayslipPeriodHeadingTextView"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:text="Period:"
-                            android:textStyle="bold">
-                        </TextView>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_weight="2"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/viewSelectedPayslipEmployeeNameTextView"
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
+                            android:layout_weight="1.2"
                             android:text="">
+                        </TextView>
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/viewSelectedPayslipEmployeeNumberHeadingTextView"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="Employee Number:"
+                            android:layout_weight="1"
+                            android:textStyle="bold">
+
                         </TextView>
 
                         <TextView
                             android:id="@+id/viewSelectedPayslipEmployeeNumberTextView"
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
+                            android:layout_weight="1.2"
                             android:text="">
+                        </TextView>
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/viewSelectedPayslipPositionHeadingTextView"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="Position:"
+                            android:layout_weight="1"
+                            android:textStyle="bold">
+
                         </TextView>
 
                         <TextView
                             android:id="@+id/viewSelectedPayslipPositionTextView"
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp"
+                            android:layout_weight="1.2"
                             android:text="">
+                        </TextView>
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/viewSelectedPayslipTaxNumberHeadingTextView"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="Tax Number:"
+                            android:layout_weight="1"
+                            android:textStyle="bold">
                         </TextView>
 
                         <TextView
                             android:id="@+id/viewSelectedPayslipTaxNumberTextView"
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp"
+                            android:layout_weight="1.2"
                             android:text="">
+                        </TextView>
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/viewSelectedPayslipDateOfIssueHeadingTextView"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="Date of Issue:"
+                            android:layout_weight="1"
+                            android:textStyle="bold">
                         </TextView>
 
                         <TextView
                             android:id="@+id/viewSelectedPayslipDateOfIssueTextView"
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
+                            android:layout_weight="1.2"
                             android:text="">
+                        </TextView>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/viewSelectedPayslipPeriodHeadingTextView"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="Period:"
+                            android:layout_weight="1"
+                            android:textStyle="bold">
                         </TextView>
 
                         <TextView
                             android:id="@+id/viewSelectedPayslipPeriodTextView"
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
+                            android:layout_weight="1.2"
                             android:text="">
                         </TextView>
+
                     </LinearLayout>
+
                 </LinearLayout>
 
                 <TextView
