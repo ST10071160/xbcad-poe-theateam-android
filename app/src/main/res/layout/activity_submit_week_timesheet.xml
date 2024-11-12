@@ -1,0 +1,229 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:id="@+id/main"
+    tools:context=".SubmitWeekTimesheetActivity"
+    >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#F5883F"
+        android:gravity="center_vertical"
+        android:backgroundTint="@color/figma_blue"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/back_btn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/back_arrow"
+            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+        <TextView
+            android:id="@+id/about_heading_textView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="70dp"
+            android:layout_marginBottom="10dp"
+            android:text="Submit Timesheet"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:ignore="RtlCompat" />
+    </LinearLayout>
+
+
+    <!-- Header with navigation and date range -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:padding="8dp">
+
+        <!-- Left Arrow Button -->
+        <ImageButton
+            android:id="@+id/previousWeekButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back_arrow_icon"
+            android:background="?android:selectableItemBackground" />
+
+        <!-- Week Dates TextView -->
+        <TextView
+            android:id="@+id/weekDatesTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="11/11 - 15/11"
+            android:textSize="18sp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp" />
+
+        <!-- Right Arrow Button -->
+        <ImageButton
+            android:id="@+id/nextWeekButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/forward_arrow_icon"
+            android:background="?android:selectableItemBackground" />
+    </LinearLayout>
+
+    <!-- Days List with Spinners for Hours -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:divider="?android:dividerVertical"
+        android:padding="16dp"
+        android:showDividers="middle">
+
+        <!-- Repeat this layout for each day in a loop -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="15dp"
+            android:gravity="center_vertical"
+            android:padding="8dp">
+
+            <!-- Day and Date TextView -->
+            <TextView
+                android:id="@+id/mondayDateTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Monday 11/11"
+                android:textSize="16sp" />
+
+            <!-- Hours Spinner -->
+            <Spinner
+                android:id="@+id/mondaySpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:entries="@array/hours_array" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_margin="15dp"
+            android:padding="8dp">
+
+            <!-- Day and Date TextView -->
+            <TextView
+                android:id="@+id/tuesdayDateTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Monday 11/11"
+                android:textSize="16sp" />
+
+            <!-- Hours Spinner -->
+            <Spinner
+                android:id="@+id/tuesdaySpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:entries="@array/hours_array" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_margin="15dp"
+            android:padding="8dp">
+
+            <!-- Day and Date TextView -->
+            <TextView
+                android:id="@+id/wednesdayDateTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Monday 11/11"
+                android:textSize="16sp" />
+
+            <!-- Hours Spinner -->
+            <Spinner
+                android:id="@+id/wednesdaySpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:entries="@array/hours_array" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_margin="15dp"
+            android:padding="8dp">
+
+            <!-- Day and Date TextView -->
+            <TextView
+                android:id="@+id/thursdayDateTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Monday 11/11"
+                android:textSize="16sp" />
+
+            <!-- Hours Spinner -->
+            <Spinner
+                android:id="@+id/thursdaySpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:entries="@array/hours_array" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_margin="15dp"
+            android:padding="8dp">
+
+            <!-- Day and Date TextView -->
+            <TextView
+                android:id="@+id/fridayDateTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Monday 11/11"
+                android:textSize="16sp" />
+
+            <!-- Hours Spinner -->
+            <Spinner
+                android:id="@+id/fridaySpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:entries="@array/hours_array" />
+        </LinearLayout>
+
+        <!-- Submit Button -->
+        <Button
+            android:id="@+id/submitButton"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Submit Timesheet"
+            android:textColor="@android:color/white"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:textSize="20sp"
+            android:layout_marginTop="30dp" />
+    </LinearLayout>
+
+
+</LinearLayout>

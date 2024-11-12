@@ -13,70 +13,73 @@
         android:theme="@style/Theme.SparkLineHR"
         tools:targetApi="31">
         <activity
+            android:name=".SubmitWeekTimesheetActivity"
+            android:exported="false" />
+        <activity
             android:name=".ChangePasswordActivity"
             android:exported="false"
             android:theme="@style/splash_screen"
-            android:windowSoftInputMode="adjustPan"/>
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".AddOrUpdateActivity"
             android:exported="false"
             android:theme="@style/splash_screen"
-            android:windowSoftInputMode="adjustPan"/>
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".GoalsActivity"
             android:exported="false"
             android:theme="@style/splash_screen"
-            android:windowSoftInputMode="adjustPan"/>
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".LeaveRequestActivity"
             android:exported="false"
             android:theme="@style/splash_screen"
-            android:windowSoftInputMode="adjustPan"/>
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".IncidentReportingActivity"
             android:exported="false"
             android:theme="@style/splash_screen"
-            android:windowSoftInputMode="adjustPan"/>
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".DevelopmentAndGoalsMenuActivity"
             android:exported="false"
             android:theme="@style/splash_screen"
-            android:windowSoftInputMode="adjustPan"/>
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".SubmitTimesheetActivity"
             android:exported="false"
             android:theme="@style/splash_screen"
-            android:windowSoftInputMode="adjustPan"/>
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".UpdatePersonalInformationActivity"
             android:exported="false"
             android:theme="@style/splash_screen"
-            android:windowSoftInputMode="adjustPan"/>
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".UpdatePaymentInformationActivity"
             android:exported="false"
             android:theme="@style/splash_screen"
-            android:windowSoftInputMode="adjustPan"/>
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".ViewSelectedPayslipActivity"
             android:exported="false"
             android:theme="@style/splash_screen"
-            android:windowSoftInputMode="adjustPan"/>
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".ViewPayslipHistoryActivity"
             android:exported="false"
             android:theme="@style/splash_screen"
-            android:windowSoftInputMode="adjustPan"/>
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".ViewPersonalInformationActivity"
             android:exported="false"
             android:theme="@style/splash_screen"
-            android:windowSoftInputMode="adjustPan"/>
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".SelfServiceActivity"
             android:exported="false"
             android:theme="@style/splash_screen"
-            android:windowSoftInputMode="adjustPan"/>
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".HomeScreenActivity"
             android:exported="false" />
@@ -84,12 +87,12 @@
             android:name=".LoginActivity"
             android:exported="false"
             android:theme="@style/splash_screen"
-            android:windowSoftInputMode="adjustPan"/>
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".MainActivity"
             android:exported="false"
             android:theme="@style/splash_screen"
-            android:windowSoftInputMode="adjustPan"/>
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".SplashActivity"
             android:exported="true"
