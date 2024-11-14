@@ -128,8 +128,8 @@ class LeaveRequestActivity : AppCompatActivity() {
     private fun createLeaveReq(leaveType: String, fromDate: String, toDate: String) {
 
 
-        val sharedPreferences = applicationContext.getSharedPreferences("NumPref", Context.MODE_PRIVATE)
-        val userNum = sharedPreferences.getString("USER_EMPNUM", null)
+        val sharedPreferences = applicationContext.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE)
+        val userNum = sharedPreferences.getString("EMPLOYEE_ID", null)
 
 
         val fileName = "$userNum,$fromDate"
@@ -169,12 +169,12 @@ class LeaveRequestActivity : AppCompatActivity() {
 
     private fun writeToFirebase(leaveType: String, fromDate: String, toDate: String, document: String) {
 
-        val sharedPreferences = applicationContext.getSharedPreferences("NumPref", Context.MODE_PRIVATE)
-        val userNum = sharedPreferences.getString("USER_EMPNUM", null).toString()
+        val sharedPreferences = applicationContext.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE)
+        val userNum = sharedPreferences.getString("EMPLOYEE_ID", null).toString()
 
 
         val database = Firebase.database
-        val dbRef = database.getReference("HRApp")
+        val dbRef = database.getReference("SparkLineHR")
         val entry = LeaveRequest(leaveType, fromDate, toDate, document)
 
         dbRef.child("Leave Requests").child(userNum).setValue(entry)

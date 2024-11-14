@@ -70,8 +70,9 @@ class ViewPayslipHistoryActivity : AppCompatActivity() {
         val database = FirebaseDatabase.getInstance()
         val dbRef = database.getReference("SparkLineHR")
 
-        // Hardcoded employee number
-        val userNum = "EMP12345"
+
+        val sharedPreferences = applicationContext.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE)
+        val userNum = sharedPreferences.getString("EMPLOYEE_ID", null).toString()
 
         // Fetch all payslips for the given employee
         dbRef.child("User Payslip Info").addListenerForSingleValueEvent(object : ValueEventListener {
