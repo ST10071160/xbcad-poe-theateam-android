@@ -132,7 +132,7 @@ class SubmitWeekTimesheetActivity : AppCompatActivity() {
 
     private fun checkExistingTimesheet(datePeriod: Calendar, callback: TimesheetCheckCallback) {
         val database = FirebaseDatabase.getInstance()
-        val dbRef = database.getReference("SparklineHR")
+        val dbRef = database.getReference("SparkLineHR")
 
         val sharedPreferences = applicationContext.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE)
         val userNum = sharedPreferences.getString("EMPLOYEE_ID", null).toString()
@@ -167,7 +167,7 @@ class SubmitWeekTimesheetActivity : AppCompatActivity() {
         val timesheetKey = getTimesheetKey(userNum, datePeriod)
 
         val database = FirebaseDatabase.getInstance()
-        val dbRef = database.getReference("SparklineHR")
+        val dbRef = database.getReference("SparkLineHR")
 
         val updatedMon = monHours + timesheet.monHours
         val updatedTue = tueHours + timesheet.tueHours
@@ -210,17 +210,26 @@ class SubmitWeekTimesheetActivity : AppCompatActivity() {
         val timesheetKey = getTimesheetKey(userNum, datePeriod)
 
         val database = Firebase.database
-        val dbRef = database.getReference("SparklineHR")
+        val dbRef = database.getReference("SparkLineHR")
         val entry = Timesheet(monHours, tueHours, wedHours, thuHours, friHours)
 
-        dbRef.child("Timesheet entry").child(timesheetKey).setValue(entry)
-            .addOnSuccessListener {
-                Log.d("LogTimesheet", "Timesheet successfully recorded!")
-            }
-            .addOnFailureListener { exception ->
-                Toast.makeText(this, "Database write failed: ${exception.message}", Toast.LENGTH_SHORT).show()
-                Log.e("LogTimesheet", "Database write failed", exception)
-            }
+        val totalHours = monHours + tueHours + wedHours + thuHours + friHours
+
+
+        if (totalHours < 40) {
+            dbRef.child("Timesheet entry").child(timesheetKey).setValue(entry)
+                .addOnSuccessListener {
+                    Log.d("LogTimesheet", "Timesheet successfully recorded!")
+                }
+                .addOnFailureListener { exception ->
+                    Toast.makeText(this, "Database write failed: ${exception.message}", Toast.LENGTH_SHORT).show()
+                    Log.e("LogTimesheet", "Database write failed", exception)
+                }
+        } else if (totalHours > 50) {
+            Toast.makeText(this, "Timesheet cannot be submitted, work hours more than 50 for the week", Toast.LENGTH_SHORT).show()
+        } else if (totalHours < 50 && totalHours > 40) {
+            submitOvertime(datePeriod, monHours, tueHours, wedHours, thuHours, friHours)
+        }
     }
 
     private fun submitOvertime(weekKey: Calendar, monHours: Int, tueHours: Int, wedHours: Int, thuHours: Int, friHours: Int) {
@@ -233,7 +242,7 @@ class SubmitWeekTimesheetActivity : AppCompatActivity() {
         val timesheetKey = "${userNum},${datePeriod}"
 
         val database = Firebase.database
-        val dbRef = database.getReference("SparklineHR")
+        val dbRef = database.getReference("SparkLineHR")
         val entry = Timesheet(monHours, tueHours, wedHours, thuHours, friHours)
 
 
@@ -317,7 +326,7 @@ class SubmitWeekTimesheetActivity : AppCompatActivity() {
 
     private fun loadLeavePeriods() {
         val database = Firebase.database
-        val dbRef = database.getReference("SparklineHR")
+        val dbRef = database.getReference("SparkLineHR")
 
         val sharedPreferences = applicationContext.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE)
         val userNum = sharedPreferences.getString("EMPLOYEE_ID", null).toString()
@@ -376,7 +385,12 @@ class SubmitWeekTimesheetActivity : AppCompatActivity() {
 
 
 
-    data class LeaveRequest(val leaveType: String, val fromDate: String, val toDate: String, val document: String)
+    data class LeaveRequest(val leaveType: String = "",
+                            val fromDate: String = "",
+                            val toDate: String = "",
+                            val document: String = "")
+
+
     data class Timesheet(val monHours: Int = 0,
                          val tueHours: Int = 0,
                          val wedHours: Int = 0,

@@ -88,9 +88,9 @@ class ViewPayslipHistoryActivity : AppCompatActivity() {
                             val payslip = childSnapshot.getValue(Payslip::class.java)
                             if (payslip != null) {
                                 payslipList.add(payslip)
-                                Log.d("UserInfo", "Payslip found: $payslip")
+                                Log.d("PayslipInfo", "Payslip found: $payslip")
                             } else {
-                                Log.e("UserInfo", "No data found for key: $key")
+                                Log.e("PayslipInfo", "No data found for key: $key")
                             }
                         }
                     }

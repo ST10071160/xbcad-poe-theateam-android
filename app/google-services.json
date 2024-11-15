@@ -1,13 +1,52 @@
 {
   "project_info": {
-    "project_number": "484602032558",
-    "project_id": "sparklinehr-3a089",
-    "storage_bucket": "sparklinehr-3a089.firebasestorage.app"
+    "project_number": "100968004030",
+    "firebase_url": "https://hrappstorage-default-rtdb.firebaseio.com",
+    "project_id": "hrappstorage",
+    "storage_bucket": "hrappstorage.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:484602032558:android:fef78bf7d8bf635271183f",
+        "mobilesdk_app_id": "1:100968004030:android:824837ce760a3ddbb621ef",
+        "android_client_info": {
+          "package_name": "com.example.hrappstorage"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDA5r2ekKThKf-QKNd-cBVDijx5Enxcqfw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:100968004030:android:6ff070e2334a7efdb621ef",
+        "android_client_info": {
+          "package_name": "com.example.timesheettestapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDA5r2ekKThKf-QKNd-cBVDijx5Enxcqfw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:100968004030:android:956b03cdad1328f8b621ef",
         "android_client_info": {
           "package_name": "com.theateam.sparklinehr"
         }
@@ -15,7 +54,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyD43B3cVSIkq-ICHMa3uHdHDkD1skY2EAs"
+          "current_key": "AIzaSyDA5r2ekKThKf-QKNd-cBVDijx5Enxcqfw"
         }
       ],
       "services": {

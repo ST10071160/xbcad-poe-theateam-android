@@ -108,10 +108,9 @@ class LeaveRequestActivity : AppCompatActivity() {
 
             if (leaveTypeString.isEmpty() || passFrom.isEmpty() || passTo.isEmpty()) {
                 Toast.makeText(this, "Some fields are missing", Toast.LENGTH_SHORT).show()
-            } else {
-                // Ensure fileUri is initialized
-                if (::fileUri.isInitialized) {  // Changed from imageUri to fileUri
-                    // Invoke the createLeaveReq method and pass the selected variables as parameters
+            }
+            else if(leaveTypeString == "Sick") {
+                if (::fileUri.isInitialized) {
                     createLeaveReq(leaveTypeString, passFrom, passTo)
 
                     // Display to alert the user that the leave request has been added to the application
@@ -120,14 +119,15 @@ class LeaveRequestActivity : AppCompatActivity() {
                     Toast.makeText(this, "Document not selected", Toast.LENGTH_SHORT).show()
                 }
             }
+            else{
+                writeToFirebase(leaveTypeString, passFrom, passTo, "N/a")
+            }
         }
 
     }
 
 
     private fun createLeaveReq(leaveType: String, fromDate: String, toDate: String) {
-
-
         val sharedPreferences = applicationContext.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE)
         val userNum = sharedPreferences.getString("EMPLOYEE_ID", null)
 
@@ -172,12 +172,13 @@ class LeaveRequestActivity : AppCompatActivity() {
         val sharedPreferences = applicationContext.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE)
         val userNum = sharedPreferences.getString("EMPLOYEE_ID", null).toString()
 
+        val leaveReqKey = "${userNum},${fromDate}"
 
         val database = Firebase.database
         val dbRef = database.getReference("SparkLineHR")
         val entry = LeaveRequest(leaveType, fromDate, toDate, document)
 
-        dbRef.child("Leave Requests").child(userNum).setValue(entry)
+        dbRef.child("Leave Requests").child(leaveReqKey).setValue(entry)
             .addOnSuccessListener {
                 Log.d("LogLeaveReq", "Leave Request successfully recorded!")
             }
