@@ -39,7 +39,7 @@ class IncidentReportingActivity : AppCompatActivity() {
 
         binding.incidentReportingSubmitIncidentBtn.setOnClickListener()
         {
-            if(binding.incidentReportingRemainAnonCheckBox.isActivated)
+            if(binding.incidentReportingRemainAnonCheckBox.isChecked)
             {
                 val randomVal = Random.nextInt(10000, 100000)
 
@@ -76,15 +76,15 @@ class IncidentReportingActivity : AppCompatActivity() {
     }
 
 
-    private fun writeToFirebase(userNum: String, passTitle: String, passDesc: String) {
+    private fun writeToFirebase(key: String, passTitle: String, passDesc: String) {
 
         val currDate = LocalDate.now()
 
-        val entryID = userNum + "," + currDate
+        val entryID = key + "," + currDate
 
         val database = Firebase.database
-        val dbRef = database.getReference("HRApp")
-        val entry = Issue(userNum, passTitle, passDesc)
+        val dbRef = database.getReference("SparkLineHR")
+        val entry = Issue(key, passTitle, passDesc)
 
         dbRef.child("IssueReports").child(entryID).setValue(entry)
             .addOnSuccessListener {

@@ -75,7 +75,7 @@ class ViewPayslipHistoryActivity : AppCompatActivity() {
         val userNum = sharedPreferences.getString("EMPLOYEE_ID", null).toString()
 
         // Fetch all payslips for the given employee
-        dbRef.child("User Payslip Info").addListenerForSingleValueEvent(object : ValueEventListener {
+        dbRef.child(userNum).child("Payslip Info").addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 if (dataSnapshot.exists()) {
                     // Clear the existing data
@@ -83,8 +83,7 @@ class ViewPayslipHistoryActivity : AppCompatActivity() {
 
                     for (childSnapshot in dataSnapshot.children) {
                         val key = childSnapshot.key
-                        if (key != null && key.startsWith(userNum)) {
-                            // Get the payslip data for this key
+                        if (key != null) {
                             val payslip = childSnapshot.getValue(Payslip::class.java)
                             if (payslip != null) {
                                 payslipList.add(payslip)

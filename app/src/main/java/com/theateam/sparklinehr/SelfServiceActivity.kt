@@ -42,12 +42,6 @@ class SelfServiceActivity : AppCompatActivity() {
             startActivity(intentUpdatePersonalInfo)
         }
 
-        binding.selfServiceUpdatePaymentInfoBtn.setOnClickListener(){
-            val intentUpdatePaymentInfo = Intent(this@SelfServiceActivity, UpdatePaymentInformationActivity::class.java)
-            startActivity(intentUpdatePaymentInfo)
-
-        }
-
         binding.selfServiceViewPayslipInfoBtn.setOnClickListener(){
             val intentViewPaymentInfo = Intent(this@SelfServiceActivity, ViewPayslipHistoryActivity::class.java)
             startActivity(intentViewPaymentInfo)

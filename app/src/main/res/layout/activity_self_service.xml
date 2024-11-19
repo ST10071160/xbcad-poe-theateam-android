@@ -114,8 +114,9 @@
         android:textColor="#FFFFFF"
         android:text="View Payslip History" />
 
+
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/selfServiceUpdatePaymentInfoBtn"
+            android:id="@+id/selfServiceViewPendingRequestsBtn"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_marginLeft="40dp"
@@ -124,9 +125,9 @@
             android:background="@drawable/square_btn_shape"
             android:backgroundTint="@null"
             android:textAllCaps="false"
-            android:textColor="#FFFFFF"
             android:textSize="20sp"
-            android:text="Update Payment Information" />
+            android:textColor="#FFFFFF"
+            android:text="View Pending Requests" />
 
 
     </LinearLayout>

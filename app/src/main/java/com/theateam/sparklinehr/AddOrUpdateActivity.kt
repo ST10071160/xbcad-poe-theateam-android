@@ -136,7 +136,7 @@ class AddOrUpdateActivity : AppCompatActivity() {
         val key = "${userNum},${dateAdded}"
 
         val database = Firebase.database
-        val dbRef = database.getReference("SparklineHR")
+        val dbRef = database.getReference("SparkLineHR")
         val entry = Goal(goalName, dateAdded, dateAchieveBy, goalDesc)
 
         dbRef.child("Goals").child(key).setValue(entry)
