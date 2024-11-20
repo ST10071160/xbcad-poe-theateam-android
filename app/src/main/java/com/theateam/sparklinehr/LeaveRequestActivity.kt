@@ -178,7 +178,7 @@ class LeaveRequestActivity : AppCompatActivity() {
         val dbRef = database.getReference("SparkLineHR")
         val entry = LeaveRequest(leaveType, fromDate, toDate, document)
 
-        dbRef.child("Leave Requests").child(leaveReqKey).setValue(entry)
+        dbRef.child("Pending Leave Requests").child(leaveReqKey).setValue(entry)
             .addOnSuccessListener {
                 Log.d("LogLeaveReq", "Leave Request successfully recorded!")
             }

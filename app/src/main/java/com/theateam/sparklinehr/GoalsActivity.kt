@@ -9,6 +9,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -20,8 +21,9 @@ class GoalsActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityGoalsBinding
     private lateinit var goalsRecyclerView: RecyclerView
-    private var goalNameList = ArrayList<String>()
-    // Declare adapter as lateinit
+    private var goalList = ArrayList<String>()
+
+
     lateinit var adapter: GoalAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,15 +44,17 @@ class GoalsActivity : AppCompatActivity() {
             finish()
         }
 
+
+        goalsRecyclerView = findViewById(R.id.goalsRecyclerView)
+        goalsRecyclerView.layoutManager = LinearLayoutManager(this)
+
         loadGoals()
 
-
-
         // Declare adapter variable
-        adapter = GoalAdapter(goalNameList,
+        adapter = GoalAdapter(goalList,
             onDeleteClick = { goal ->
-                // Remove the goal from the list and notify the adapter
-                goalNameList.remove(goal)
+                removeGoal(goal)
+                goalList.remove(goal)
                 adapter.notifyDataSetChanged()
             },
             onEditClick = { goal ->
@@ -62,7 +66,7 @@ class GoalsActivity : AppCompatActivity() {
 //                Toast.makeText(this, "Edit $goal", Toast.LENGTH_SHORT).show()
             }
         )
-        binding.goalsRecyclerView.adapter = adapter
+        goalsRecyclerView.adapter = adapter
 
 
         binding.btnAddNewGoal.setOnClickListener() {
@@ -70,14 +74,27 @@ class GoalsActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-
-
-
-
-
-
     }
 
+    private fun removeGoal(goal: String) {
+        val database = FirebaseDatabase.getInstance()
+        val dbRef = database.getReference("SparkLineHR")
+
+        val sharedPreferences = applicationContext.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE)
+        val userNum = sharedPreferences.getString("EMPLOYEE_ID", null)
+
+        val key = "${userNum},${goal}"
+
+        dbRef.child("Goals").child(key).removeValue()
+            .addOnSuccessListener {
+                Log.d("Firebase", "Data successfully removed for key: $key")
+                Toast.makeText(this, "Goal successfully removed", Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener { exception ->
+                Log.e("Firebase", "Failed to remove data: ${exception.message}", exception)
+                Toast.makeText(this, "Failed to remove goal: ${exception.message}", Toast.LENGTH_SHORT).show()
+            }
+    }
 
 
     private fun loadGoals() {
@@ -86,7 +103,7 @@ class GoalsActivity : AppCompatActivity() {
 
 
         val sharedPreferences = applicationContext.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE)
-        val userNum = sharedPreferences.getString("EMPLOYEE_ID", null).toString()
+        val userNum = sharedPreferences.getString("EMPLOYEE_ID", null)
 
         // Fetch all goals for the current employee
         dbRef.child("Goals").addListenerForSingleValueEvent(object :
@@ -94,25 +111,25 @@ class GoalsActivity : AppCompatActivity() {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 if (dataSnapshot.exists()) {
                     // Clear the existing data
-                    goalNameList.clear()
+                    goalList.clear()
 
                     for (childSnapshot in dataSnapshot.children) {
                         val key = childSnapshot.key
-                        if (key != null && key.startsWith(userNum)) {
+                        if (key != null && key.startsWith(userNum!!)) {
                             // Get the payslip data for this key
                             val goal = childSnapshot.getValue(Goal::class.java)
                             if (goal != null) {
-                                goalNameList.add(goal.goalName)
-                                Log.d("UserInfo", "Payslip found: $goal")
+                                goalList.add(goal.goalName)
+                                Log.d("GoalInfo", "Goal found: $goal")
                             } else {
-                                Log.e("UserInfo", "No data found for key: $key")
+                                Log.e("GoalInfo", "No data found for key: $key")
                             }
                         }
                     }
 
                     // Notify the adapter to update the UI
                     adapter.notifyDataSetChanged()
-                    Log.d("FIREBASE_SUCCESS", "Payslips fetched successfully: $goalNameList")
+                    Log.d("FIREBASE_SUCCESS", "Payslips fetched successfully: $goalList")
                 } else {
                     Log.e("FIREBASE_ERROR", "No data found in the database.")
                 }
@@ -127,5 +144,8 @@ class GoalsActivity : AppCompatActivity() {
 
 
 
-    data class Goal(val goalName: String, val dateAdded: String, val dateAchieveBy: String, val goalDesc: String)
+    data class Goal(val goalName: String = "",
+                    val dateAdded: String = "",
+                    val dateAchieveBy: String = "",
+                    val goalDesc: String = "")
 }

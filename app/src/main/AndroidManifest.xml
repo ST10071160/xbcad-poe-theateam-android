@@ -13,9 +13,13 @@
         android:theme="@style/Theme.SparkLineHR"
         tools:targetApi="31">
         <activity
-            android:name=".SubmitWeekTimesheetActivity"
+            android:name=".ViewPendingRequestsActivity"
             android:exported="false"
             android:theme="@style/splash_screen"/>
+        <activity
+            android:name=".SubmitWeekTimesheetActivity"
+            android:exported="false"
+            android:theme="@style/splash_screen" />
         <activity
             android:name=".ChangePasswordActivity"
             android:exported="false"

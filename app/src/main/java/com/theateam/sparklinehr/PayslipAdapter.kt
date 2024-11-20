@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class PayslipAdapter(
     private val payslipList: List<Payslip>,
-    private val onRecipeClick: (Payslip) -> Unit
+    private val onPayslipClick: (Payslip) -> Unit
 ) : RecyclerView.Adapter<PayslipAdapter.PayslipViewHolder>() {
 
     inner class PayslipViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -20,11 +20,11 @@ class PayslipAdapter(
         return PayslipViewHolder(view)
     }
 
-    //this will display the recipe name back to the user to be selected from the list
+    //this will display the payslip period back to the user to be selected from the list
     override fun onBindViewHolder(holder: PayslipViewHolder, position: Int) {
         val payslip = payslipList[position]
         holder.payslipMonth.setText(payslip.payslipPeriod)
-        holder.itemView.setOnClickListener { onRecipeClick(payslip) }
+        holder.itemView.setOnClickListener { onPayslipClick(payslip) }
     }
 
     override fun getItemCount(): Int {

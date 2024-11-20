@@ -63,24 +63,65 @@ class ViewSelectedPayslipActivity : AppCompatActivity() {
         binding.viewSelectedPayslipDateOfIssueTextView.text = payslip.issueDate
         binding.viewSelectedPayslipPeriodTextView.text = payslip.payslipPeriod
 
-        binding.viewSelectedPayslipBasicSalaryValueTextView.text = "R ${payslip.basicSalary}"
-        binding.viewSelectedPayslipTotalEarningsValueTextView.text = "R ${payslip.basicSalary}"
+        val roundedPayslip = String.format("%.2f", payslip.basicSalary.toString())
+        binding.viewSelectedPayslipBasicSalaryValueTextView.text = "R ${roundedPayslip}"
+        binding.viewSelectedPayslipTotalEarningsValueTextView.text = "R ${roundedPayslip}"
 
+        var taxAmount = 0.0
 
-        val taxAmount = payslip.basicSalary * payslip.taxPercent
-        binding.viewSelectedPayslipPAYEValueTextView.text = "R ${taxAmount}"
+        var yearlysalary = payslip.basicSalary * 12
 
-        val uifAmount = payslip.basicSalary * payslip.uifPercent
-        binding.viewSelectedPayslipUIFValueTextView.text = "R ${uifAmount}"
+        if(yearlysalary > 95750 && yearlysalary < 237100)
+        {
+            taxAmount = 0.18*(yearlysalary)
+        }
+        else if(yearlysalary > 237101 && yearlysalary < 370500)
+        {
+            taxAmount = 42678 + 0.26*(yearlysalary - 237100)
+        }
+        else if(yearlysalary > 370501 && yearlysalary < 512800)
+        {
+            taxAmount = 77362 + 0.31*(yearlysalary - 370500)
+        }
+        else if(yearlysalary > 512801 && yearlysalary < 673000)
+        {
+            taxAmount = 121475 + 0.36*(yearlysalary - 512800)
+        }
+        else if(yearlysalary > 673001 && yearlysalary < 857900)
+        {
+            taxAmount = 179147 + 0.39*(yearlysalary - 673000)
+        }
+        else if(yearlysalary > 857901 && yearlysalary < 1817000)
+        {
+            taxAmount = 251258 + 0.41*(yearlysalary - 857900)
+        }
+        else if(payslip.basicSalary > 1817001)
+        {
+            taxAmount = 251258 + 0.41*(yearlysalary - 857900)
+        }
+        else{
+            taxAmount = 0.0
+        }
 
-        val pensionAmount = payslip.basicSalary * payslip.pensionPercent
-        binding.viewSelectedPayslipPensionFundValueTextView.text = "R ${pensionAmount}"
+        val monthlyTax = taxAmount / 12
+        val roundedMonthlyTax = String.format("%.2f", monthlyTax)
+        binding.viewSelectedPayslipPAYEValueTextView.text = "R $roundedMonthlyTax"
 
-        val totalDeductions = taxAmount + uifAmount + pensionAmount
-        binding.viewSelectedPayslipTotalDeductionsValueTextView.text = "R ${totalDeductions}"
+        val uifAmount = Math.round(payslip.basicSalary * payslip.uifPercent)
+        val roundedUifAmount = String.format("%.2f", uifAmount)
+        binding.viewSelectedPayslipUIFValueTextView.text = "R ${roundedUifAmount}"
+
+        val pensionAmount = Math.round(payslip.basicSalary * payslip.pensionPercent)
+        val roundedPensionAmount = String.format("%.2f", pensionAmount)
+        binding.viewSelectedPayslipPensionFundValueTextView.text = "R ${roundedPensionAmount}"
+
+        val totalDeductions = monthlyTax + uifAmount + pensionAmount
+        val roundedTotalDeductions = String.format("%.2f", totalDeductions)
+        binding.viewSelectedPayslipTotalDeductionsValueTextView.text = "R ${roundedTotalDeductions}"
 
         val netPay = payslip.basicSalary - totalDeductions
-        binding.viewSelectedPayslipNetPayValueTextView.text = "R ${netPay}"
+        val roundedNetPay = String.format("%.2f", netPay)
+        binding.viewSelectedPayslipNetPayValueTextView.text = "R ${roundedNetPay}"
 
 
         binding.backBtn.setOnClickListener{
@@ -113,31 +154,25 @@ class ViewSelectedPayslipActivity : AppCompatActivity() {
             canvas.drawText(value, pageWidth - valueWidth - padding, yPos, paint)
         }
 
-        // Header and Icon
         canvas.drawText("SparkLine", padding, 25f, paint)
 
         val iconBitMap: Bitmap = BitmapFactory.decodeResource(resources, R.drawable.spark_line_icon_only)
         val appIcon = Bitmap.createScaledBitmap(iconBitMap, 100, 50, true)
         canvas.drawBitmap(appIcon, 100f, 40f, paint)
 
-        // Increase gap between icon and payslip date (another +15f)
         canvas.drawText("Payslip for ${payslip.payslipPeriod}", padding, 120f, paint)
 
-        // Employee Details with even tighter spacing
-        drawLabelAndValue("Employee Name:", payslip.empName, 140f)  // Reduced gap
-        drawLabelAndValue("Employee Number:", payslip.empNum, 160f) // Reduced gap
-        drawLabelAndValue("Position:", payslip.empPos, 180f)        // Reduced gap
-        drawLabelAndValue("Company:", payslip.company, 200f)        // Reduced gap
-        drawLabelAndValue("Tax Number:", payslip.taxNum, 220f)      // Reduced gap
-        drawLabelAndValue("Date of Issue:", payslip.issueDate, 240f)// Reduced gap
+        drawLabelAndValue("Employee Name:", payslip.empName, 140f)
+        drawLabelAndValue("Employee Number:", payslip.empNum, 160f)
+        drawLabelAndValue("Position:", payslip.empPos, 180f)
+        drawLabelAndValue("Company:", payslip.company, 200f)
+        drawLabelAndValue("Tax Number:", payslip.taxNum, 220f)
+        drawLabelAndValue("Date of Issue:", payslip.issueDate, 240f)
         drawLabelAndValue("Payslip Period:", payslip.payslipPeriod, 260f)
 
-        // Add even larger gap here (Payslip Period → Gross Salary)
         drawLabelAndValue("Gross Salary:", "R " + payslip.basicSalary.toString(), 310f)
-
         drawLabelAndValue("Total Earnings:", "R " + payslip.basicSalary.toString(), 335f)
 
-        // Add even larger gap here (Total Earnings → PAYE (Tax))
         val taxAmount = payslip.basicSalary * payslip.taxPercent
         drawLabelAndValue("PAYE (Tax):", "R " + taxAmount.toString(), 385f)
 
@@ -147,7 +182,6 @@ class ViewSelectedPayslipActivity : AppCompatActivity() {
         val pensionAmount = payslip.basicSalary * payslip.pensionPercent
         drawLabelAndValue("Pension Fund:", "R " + pensionAmount.toString(), 425f)
 
-        // Add even larger gap here (Total Deductions → Net Pay)
         val totalDeductions = taxAmount + uifAmount + pensionAmount
         drawLabelAndValue("Total Deductions:", "R " + totalDeductions.toString(), 475f)
 

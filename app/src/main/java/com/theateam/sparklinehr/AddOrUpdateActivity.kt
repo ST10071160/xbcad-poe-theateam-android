@@ -20,6 +20,7 @@ import java.util.Calendar
 class AddOrUpdateActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityAddOrUpdateBinding
+    private lateinit var goal: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,6 +49,7 @@ class AddOrUpdateActivity : AppCompatActivity() {
         }
 
         val boolEdit = intent.getBooleanExtra("editgoal", false)
+        goal = intent.getStringExtra("goalName").toString()
 
         if (boolEdit) {
             binding.aboutHeadingTextView.text = "Update Goal"
@@ -98,15 +100,14 @@ class AddOrUpdateActivity : AppCompatActivity() {
 
 
     private fun updateGoals(goalName: String, dateAdded: String, dateAchieveBy: String, goalDesc: String) {
-
         val sharedPreferences = applicationContext.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE)
         val userNum = sharedPreferences.getString("EMPLOYEE_ID", null).toString()
 
-        val key = "${userNum},${dateAdded}"
-
+        val oldKey = "${userNum},${goal}"
+        val newKey = "${userNum},${goalName}"
 
         val database = FirebaseDatabase.getInstance()
-        val dbRef = database.getReference("SparklineHR")
+        val dbRef = database.getReference("SparkLineHR")
 
         val updateMap = mapOf<String, Any>(
             "goalName" to goalName,
@@ -115,16 +116,26 @@ class AddOrUpdateActivity : AppCompatActivity() {
             "goalDesc" to goalDesc
         )
 
-        dbRef.child("Goals").child(key).updateChildren(updateMap)
+        dbRef.child("Goals").child(newKey).setValue(updateMap)
             .addOnSuccessListener {
-                Log.d("UpdateGoals", "Employee Goal successfully updated!")
-                Toast.makeText(this, "Goal Update Successful", Toast.LENGTH_SHORT).show()
+                Log.d("UpdateGoals", "Data successfully copied to new key: $newKey")
+
+                dbRef.child("Goals").child(oldKey).removeValue()
+                    .addOnSuccessListener {
+                        Log.d("UpdateGoals", "Old key successfully removed: $oldKey")
+                        Toast.makeText(this, "Goal Update Successful", Toast.LENGTH_SHORT).show()
+                    }
+                    .addOnFailureListener { exception ->
+                        Log.e("UpdateGoals", "Failed to remove old key: ${exception.message}", exception)
+                        Toast.makeText(this, "Failed to update goal", Toast.LENGTH_SHORT).show()
+                    }
             }
             .addOnFailureListener { exception ->
-                Toast.makeText(this, "Goal Update Failed", Toast.LENGTH_SHORT).show()
-                Log.e("UpdateGoals", "Failed to update Timesheet", exception)
+                Log.e("UpdateGoals", "Failed to update key: ${exception.message}", exception)
+                Toast.makeText(this, "Failed to update goal", Toast.LENGTH_SHORT).show()
             }
     }
+
 
 
 
@@ -133,7 +144,7 @@ class AddOrUpdateActivity : AppCompatActivity() {
         val sharedPreferences = applicationContext.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE)
         val userNum = sharedPreferences.getString("EMPLOYEE_ID", null).toString()
 
-        val key = "${userNum},${dateAdded}"
+        val key = "${userNum},${goalName}"
 
         val database = Firebase.database
         val dbRef = database.getReference("SparkLineHR")

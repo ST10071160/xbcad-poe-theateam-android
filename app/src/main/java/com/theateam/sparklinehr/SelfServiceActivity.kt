@@ -47,6 +47,12 @@ class SelfServiceActivity : AppCompatActivity() {
             startActivity(intentViewPaymentInfo)
         }
 
+        binding.selfServiceViewPendingRequestsBtn.setOnClickListener(){
+            val intentViewPendingRequests = Intent(this@SelfServiceActivity, ViewPendingRequestsActivity::class.java)
+            startActivity(intentViewPendingRequests)
+        }
+
+
 
 
     }

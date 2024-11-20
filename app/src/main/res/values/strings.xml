@@ -5,4 +5,6 @@
     <string name="close_drawer">Close Drawer</string>
 
     <string name="payslip_name">Payslip Name</string>
+    <string name="overtime_name">Overtime Name</string>
+    <string name="leavereq_name">Leave Request Name</string>
 </resources>
