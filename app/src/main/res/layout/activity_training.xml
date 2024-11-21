@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".GoalsActivity">
+    tools:context=".TrainingActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -31,7 +31,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="50dp"
             android:layout_marginBottom="10dp"
-            android:text="Goals"
+            android:text="Training Completed"
             android:textAlignment="center"
             android:textColor="#000000"
             android:textSize="24sp"
@@ -39,20 +39,7 @@
             tools:ignore="RtlCompat" />
     </LinearLayout>
 
-
-    <Button
-        android:id="@+id/btnAddNewGoal"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:text="+  Add New Goal"
-        android:layout_marginStart="25dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginTop="20dp"
-        android:textSize="20sp"
-        android:backgroundTint="@color/app_name_orange"
-        />
-
-    <!-- RecyclerView for Goal List -->
+    <!-- RecyclerView for Training List -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -64,17 +51,17 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#FF0000"
-            android:text="List of Goals"
+            android:background="#FF00FF"
+            android:text="List of Training"
             android:textColor="@android:color/white"
             android:padding="8dp"
             android:textSize="14sp"
             android:gravity="center"
             android:textStyle="bold" />
 
-        <!-- RecyclerView for displaying goals -->
+        <!-- RecyclerView for displaying training -->
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/goalsRecyclerView"
+            android:id="@+id/trainingRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_border_goals"

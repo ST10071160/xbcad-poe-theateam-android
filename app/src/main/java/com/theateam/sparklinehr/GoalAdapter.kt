@@ -11,7 +11,8 @@ import androidx.recyclerview.widget.RecyclerView
 class GoalAdapter(
     private val goals: List<String>,
     private val onDeleteClick: (String) -> Unit,
-    private val onEditClick: (String) -> Unit
+    private val onEditClick: (String) -> Unit,
+    private val onGoalClick: (String) -> Unit
 ) : RecyclerView.Adapter<GoalAdapter.GoalViewHolder>() {
 
     class GoalViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -39,6 +40,8 @@ class GoalAdapter(
         holder.editButton.setOnClickListener {
             onEditClick(goal)
         }
+
+        holder.itemView.setOnClickListener { onGoalClick(goal) }
     }
 
     override fun getItemCount(): Int {

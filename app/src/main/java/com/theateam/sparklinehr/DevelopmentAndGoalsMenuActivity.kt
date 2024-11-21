@@ -35,5 +35,15 @@ class DevelopmentAndGoalsMenuActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.developmentAndGoalsTrainingCardLinearLayout.setOnClickListener{
+            val intent = Intent(this, TrainingActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.developmentAndGoalsPerformanceCardLinearLayout.setOnClickListener{
+            val intent = Intent(this, PerformanceActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 }

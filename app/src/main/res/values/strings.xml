@@ -7,4 +7,6 @@
     <string name="payslip_name">Payslip Name</string>
     <string name="overtime_name">Overtime Name</string>
     <string name="leavereq_name">Leave Request Name</string>
+    <string name="review_name">Performance Review Name</string>
+    <string name="training_name">Training Name</string>
 </resources>

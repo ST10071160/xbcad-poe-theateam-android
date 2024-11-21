@@ -63,7 +63,11 @@ class GoalsActivity : AppCompatActivity() {
                 intent.putExtra("editgoal", true)
                 intent.putExtra("goalName", goal)
                 startActivity(intent)
-//                Toast.makeText(this, "Edit $goal", Toast.LENGTH_SHORT).show()
+            },
+            onGoalClick = { goal ->
+                val intent = Intent(this, ViewSelectedGoalActivity::class.java)
+                intent.putExtra("goalName", goal)
+                startActivity(intent)
             }
         )
         goalsRecyclerView.adapter = adapter

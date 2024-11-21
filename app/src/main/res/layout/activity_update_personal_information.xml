@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -46,159 +47,37 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:background="@drawable/top_cornered"
-            android:orientation="vertical">
-
-            <EditText
-                android:id="@+id/updatePersonalInfoPersonalPhoneNumberEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="25dp"
-                android:layout_marginEnd="25dp"
-                android:backgroundTint="#FFBF8F"
-                android:hint="Number"
-                android:inputType="number"
-                android:padding="12dp" />
-
-            <!-- Address Input -->
-            <EditText
-                android:id="@+id/updatePersonalInfoPersonalAddressEditText"
-                android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="25dp"
-                android:backgroundTint="#FFBF8F"
-                android:hint="Address"
-                android:inputType="textPostalAddress"
-                android:padding="12dp" />
-
-            <EditText
-                android:id="@+id/updatePersonalInfoTaxNumber"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="25dp"
-                android:backgroundTint="#FFBF8F"
-                android:hint="Tax Number"
-                android:inputType="number"
-                android:padding="12dp" />
-
-            <TextView
-                android:id="@+id/updatePersonalInfoEthnicityHeading"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="25dp"
-                android:text="Ethnicity:"
-                android:textSize="20sp" />
-
-            <Spinner
-                android:id="@+id/updatePersonalInfoEthnicitySpinner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="25dp"
-                android:backgroundTint="#FFBF8F"
-                android:padding="12dp"
-                tools:ignore="TouchTargetSizeCheck" />
-
-            <TextView
-                android:id="@+id/updatePersonalInfoReligionHeading"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="25dp"
-                android:text="Religion:"
-                android:textSize="20sp" />
-
-            <Spinner
-                android:id="@+id/updatePersonalInfoReligionSpinner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="25dp"
-                android:backgroundTint="#FFBF8F"
-                android:padding="12dp"
-                tools:ignore="TouchTargetSizeCheck" />
-
-            <TextView
-                android:id="@+id/updatePersonalInfoEmergencyInfoHeading"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="25dp"
-                android:paddingStart="4dp"
-                android:text="Emergency Information:"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/updatePersonalInfoEmergencyNameEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="25dp"
-                android:backgroundTint="#FFBF8F"
-                android:hint="Name"
-                android:inputType="text"
-                android:padding="12dp" />
-
-            <TextView
-                android:id="@+id/updatePersonalInfoRelationshipHeading"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="25dp"
-                android:text="Relationship:"
-                android:textSize="20sp" />
-
-            <Spinner
-                android:id="@+id/updatePersonalInfoRelationshipSpinner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="25dp"
-                android:backgroundTint="#FFBF8F"
-                android:minHeight="48dp"
-                android:padding="12dp" />
-
-            <EditText
-                android:id="@+id/updatePersonalInfoEmergencyNumberEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="25dp"
-                android:backgroundTint="#FFBF8F"
-                android:hint="Number"
-                android:inputType="phone"
-                android:padding="12dp" />
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="16dp">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/updatePersonalInfoSaveChangesBtn"
+                android:id="@+id/updatePersonalInfoUpdateContactBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
-                android:layout_marginTop="25dp"
                 android:layout_marginEnd="25dp"
                 android:layout_marginBottom="25dp"
                 android:background="@drawable/square_btn_shape"
                 android:backgroundTint="@null"
                 android:padding="16dp"
-                android:text="Save Changes"
+                android:text="Update Contact Details"
                 android:textColor="#FFFFFF" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/updatePersonalInfoUpdateEmergencyContactBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="25dp"
+                android:background="@drawable/square_btn_shape"
+                android:backgroundTint="@null"
+                android:padding="16dp"
+                android:text="Update Emergency Contact"
+                android:textColor="#FFFFFF" />
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

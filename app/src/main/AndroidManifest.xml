@@ -13,9 +13,37 @@
         android:theme="@style/Theme.SparkLineHR"
         tools:targetApi="31">
         <activity
-            android:name=".ViewPendingRequestsActivity"
+            android:name=".ViewSelectedGoalActivity"
             android:exported="false"
             android:theme="@style/splash_screen"/>
+        <activity
+            android:name=".UpdateEmergencyContactDetailsActivity"
+            android:exported="false"
+            android:theme="@style/splash_screen" />
+        <activity
+            android:name=".UpdateContactDetailsActivity"
+            android:exported="false"
+            android:theme="@style/splash_screen" />
+        <activity
+            android:name=".ViewTrainingDetailsActivity"
+            android:exported="false"
+            android:theme="@style/splash_screen" />
+        <activity
+            android:name=".ViewPerformanceDetailsActivity"
+            android:exported="false"
+            android:theme="@style/splash_screen" />
+        <activity
+            android:name=".PerformanceActivity"
+            android:exported="false"
+            android:theme="@style/splash_screen" />
+        <activity
+            android:name=".TrainingActivity"
+            android:exported="false"
+            android:theme="@style/splash_screen" />
+        <activity
+            android:name=".ViewPendingRequestsActivity"
+            android:exported="false"
+            android:theme="@style/splash_screen" />
         <activity
             android:name=".SubmitWeekTimesheetActivity"
             android:exported="false"

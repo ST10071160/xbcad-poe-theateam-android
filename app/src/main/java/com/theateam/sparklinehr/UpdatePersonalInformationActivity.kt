@@ -1,5 +1,6 @@
 package com.theateam.sparklinehr
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -27,6 +28,16 @@ class UpdatePersonalInformationActivity : AppCompatActivity() {
 
         binding.backBtn.setOnClickListener{
             finish()
+        }
+
+        binding.updatePersonalInfoUpdateContactBtn.setOnClickListener{
+            val intent = Intent(this, UpdateContactDetailsActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.updatePersonalInfoUpdateEmergencyContactBtn.setOnClickListener{
+            val intent = Intent(this, UpdateEmergencyContactDetailsActivity::class.java)
+            startActivity(intent)
         }
     }
 }

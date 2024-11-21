@@ -17,9 +17,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.Firebase
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.database
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
+import com.theateam.sparklinehr.ViewPersonalInformationActivity.JobDetails
 import com.theateam.sparklinehr.databinding.ActivityLeaveRequestBinding
 import java.util.Calendar
 
@@ -59,6 +64,8 @@ class LeaveRequestActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        getLeaveBalance()
 
         if (binding.leaveRequestLeaveTypeSpinner != null) {
 
@@ -188,7 +195,38 @@ class LeaveRequestActivity : AppCompatActivity() {
             }
     }
 
+    private fun getLeaveBalance() {
+        val database = FirebaseDatabase.getInstance()
+        val dbRef = database.getReference("SparkLineHR")
+
+        val sharedPreferences = applicationContext.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE)
+        val userNum = sharedPreferences.getString("EMPLOYEE_ID", null).toString()
+
+        dbRef.child("employees_sparkline").child(userNum).child("leavebalance")
+            .addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    val balance = dataSnapshot.getValue(LeaveBalance::class.java)
+                    if (balance != null) {
+
+                        binding.leaveRequestLeaveBalanceTextView.setText("${balance.AnnualDays}")
+
+
+                        Log.d("LeaveBalanceInfo", "Leave Balance info: $balance")
+                    } else {
+                        Log.e("LeaveBalanceInfo", "No data found for key: $userNum")
+                    }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    Log.e("JobInfo", "Failed to get data: ${error.message}")
+                }
+            })
+    }
+
+
     data class LeaveRequest(val leaveType: String, val fromDate: String, val toDate: String, val document: String)
+
+    data class LeaveBalance(val AnnualDays: Int = 0)
 
     private fun showDatePicker(textView: TextView) {
         val c = Calendar.getInstance()

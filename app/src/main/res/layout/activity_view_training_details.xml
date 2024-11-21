@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#8000BFFF"
+    tools:context=".ViewPerformanceDetailsActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Header Bar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#F5883F"
+            android:gravity="center_vertical"
+            android:backgroundTint="@color/figma_blue"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/back_btn"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/back_arrow"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+            <TextView
+                android:id="@+id/about_heading_textView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="70dp"
+                android:layout_marginBottom="10dp"
+                android:text="Training Info"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                tools:ignore="RtlCompat" />
+        </LinearLayout>
+
+        <!-- Content Area -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@drawable/top_cornered"
+            android:padding="16dp">
+
+            <!-- Employee Number -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="20dp"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:id="@+id/viewTrainingDetailsEmpNumHeadingTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Employee Number:"
+                    android:textSize="20sp"
+                    android:layout_marginBottom="8dp"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/viewTrainingDetailsEmpNumTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textAlignment="center" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/viewPersonalInfoDivider1"
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:background="#FF7F00" />
+
+            <!-- Review Date -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:id="@+id/viewTrainingDetailsCourseNameHeadingTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Course Name:"
+                    android:textSize="20sp"
+                    android:layout_marginBottom="8dp"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/viewTrainingDetailsCourseNameTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textAlignment="center" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/viewPersonalInfoDivider3"
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:background="#FF7F00" />
+
+            <!-- Rating -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:id="@+id/viewTrainingDetailsCourseLinkHeadingTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Course Link:"
+                    android:textSize="20sp"
+                    android:layout_marginBottom="8dp"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/viewTrainingDetailsCourseLinkTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textAlignment="center" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/viewPersonalInfoDivider4"
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:background="#FF7F00" />
+
+            <!-- Feedback -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:id="@+id/viewTrainingDetailsCompletionDateHeadingTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Completion Date:"
+                    android:textSize="20sp"
+                    android:layout_marginBottom="8dp"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/viewTrainingDetailsCompletionDateTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textAlignment="center" />
+
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/viewPersonalInfoDivider5"
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:background="#FF7F00" />
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
