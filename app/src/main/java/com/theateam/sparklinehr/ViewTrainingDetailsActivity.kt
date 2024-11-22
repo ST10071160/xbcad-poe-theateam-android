@@ -42,9 +42,9 @@ class ViewTrainingDetailsActivity : AppCompatActivity() {
         }
 
 
-        binding.viewTrainingDetailsEmpNumTextView.text = training.empNum
-        binding.viewTrainingDetailsCourseNameTextView.text = training.courseName
-        binding.viewTrainingDetailsCourseLinkTextView.text = training.courseLink
-        binding.viewTrainingDetailsCompletionDateTextView.text = training.completionDate
+        binding.viewTrainingDetailsEmpNumTextView.text = training.EmployeeNumber
+        binding.viewTrainingDetailsCourseNameTextView.text = training.CourseName
+        binding.viewTrainingDetailsCourseLinkTextView.text = training.CourseLink
+        binding.viewTrainingDetailsCompletionDateTextView.text = training.CompletionDate
     }
 }

@@ -1,5 +1,6 @@
 package com.theateam.sparklinehr
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -51,6 +52,11 @@ class SelfServiceActivity : AppCompatActivity() {
             val intentViewPendingRequests = Intent(this@SelfServiceActivity, ViewPendingRequestsActivity::class.java)
             startActivity(intentViewPendingRequests)
         }
+
+        val sharedPreferences = applicationContext.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE)
+        val userNum = sharedPreferences.getString("EMPLOYEE_ID", null).toString()
+
+        binding.selfServiceWelcomeNameTextView.text = "Welcome ${userNum}!"
 
 
 

@@ -80,7 +80,7 @@ class PerformanceActivity : AppCompatActivity() {
         val userNum = sharedPreferences.getString("EMPLOYEE_ID", null)
 
         // Fetch all goals for the current employee
-        dbRef.child("Performance Reviews").addListenerForSingleValueEvent(object :
+        dbRef.child("performanceReviews").addListenerForSingleValueEvent(object :
             ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 if (dataSnapshot.exists()) {
@@ -118,10 +118,10 @@ class PerformanceActivity : AppCompatActivity() {
 
 
 
-    data class PerformanceReview(val empNum: String = "",
-                    val reviewDate: String = "",
-                    val performanceRating: String = "",
-                    val feedback: String = ""): Serializable
+    data class PerformanceReview(val EmployeeNumber: String = "",
+                    val ReviewDate: String = "",
+                    val PerformanceRating: String = "",
+                    val Feedback: String = ""): Serializable
 
 
 }

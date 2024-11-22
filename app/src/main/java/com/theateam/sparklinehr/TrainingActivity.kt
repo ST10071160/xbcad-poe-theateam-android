@@ -78,7 +78,7 @@ class TrainingActivity : AppCompatActivity() {
         val userNum = sharedPreferences.getString("EMPLOYEE_ID", null)
 
         // Fetch all goals for the current employee
-        dbRef.child("Employee Training").addListenerForSingleValueEvent(object :
+        dbRef.child("trainings").addListenerForSingleValueEvent(object :
             ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 if (dataSnapshot.exists()) {
@@ -116,8 +116,8 @@ class TrainingActivity : AppCompatActivity() {
 
 
 
-    data class TrainingInfo(val empNum: String = "",
-                                 val courseName: String = "",
-                                 val courseLink: String = "",
-                                 val completionDate: String = ""): Serializable
+    data class TrainingInfo(val EmployeeNumber: String = "",
+                                 val CourseName: String = "",
+                                 val CourseLink: String = "",
+                                 val CompletionDate: String = ""): Serializable
 }

@@ -112,20 +112,8 @@
                     android:layout_marginTop="230dp"
                     android:background="@drawable/username_border"
                     android:textAlignment="textStart"
-                    tools:ignore="SpeakableTextPresentCheck" />
-
-                <Button
-                    android:id="@+id/loginPageForgotPasswordBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="290dp"
-                    android:layout_gravity="end"
-                    android:background="@android:color/transparent"
-                    android:backgroundTint="#DDDDDD"
-                    android:text="Forgot Password?"
-                    android:textAlignment="textEnd"
-                    android:textColor="@android:color/holo_purple"
-                    tools:ignore="TouchTargetSizeCheck" />
+                    tools:ignore="SpeakableTextPresentCheck"
+                    />
 
                 <Button
                     android:id="@+id/loginPageLoginBtn"

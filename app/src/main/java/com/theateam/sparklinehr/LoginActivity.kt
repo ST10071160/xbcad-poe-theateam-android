@@ -68,6 +68,10 @@ class LoginActivity : AppCompatActivity() {
                         override fun onResponse(call: Call<ApiResponse>, response: Response<ApiResponse>) {
                             if (response.isSuccessful) {
                                 // Successful login, redirect to WelcomeActivity
+                                val sharedPreferences = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE)
+                                val editor = sharedPreferences.edit()
+                                editor.putString("EMPLOYEE_ID", employeeId)
+                                editor.apply()
                                 startActivity(Intent(this@LoginActivity, HomeScreenActivity::class.java))
                             } else {
                                 Toast.makeText(this@LoginActivity, "Invalid password.", Toast.LENGTH_SHORT).show()

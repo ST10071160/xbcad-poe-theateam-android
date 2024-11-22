@@ -1,5 +1,6 @@
 package com.theateam.sparklinehr
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
@@ -31,31 +32,31 @@ class HomeScreenActivity : AppCompatActivity() {
             insets
         }
 
-        toggle = ActionBarDrawerToggle(this, binding.drawerLayout, R.string.open_drawer, R.string.close_drawer)
-        binding.drawerLayout.addDrawerListener(toggle)
-        toggle.syncState()
+//        toggle = ActionBarDrawerToggle(this, binding.drawerLayout, R.string.open_drawer, R.string.close_drawer)
+//        binding.drawerLayout.addDrawerListener(toggle)
+//        toggle.syncState()
 
 //        val headerView = binding.navView.getHeaderView(0)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+//        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        binding.navView.setNavigationItemSelectedListener {
-//            val intentProfile = Intent(this@MainActivity, ProfileSettingActivity::class.java)
-            //intentHome.putExtra("userEmail", email)
-//            val intentSettings = Intent(this@MainActivity, SettingsActivity::class.java)
-
-
-            //starts intents for taking the user to the home and support screens, and will allow the user
-            when (it.itemId) {
-//                R.id.navSettings -> startActivity(intentSettings)
-//                R.id.navProfile -> startActivity(intentProfile)
-                R.id.navLogout -> LogoutAlertDialog()
-            }
-            true
-        }
+//        binding.navView.setNavigationItemSelectedListener {
+////            val intentProfile = Intent(this@MainActivity, ProfileSettingActivity::class.java)
+//            //intentHome.putExtra("userEmail", email)
+////            val intentSettings = Intent(this@MainActivity, SettingsActivity::class.java)
+//
+//
+//            //starts intents for taking the user to the home and support screens, and will allow the user
+//            when (it.itemId) {
+////                R.id.navSettings -> startActivity(intentSettings)
+////                R.id.navProfile -> startActivity(intentProfile)
+//                R.id.navLogout -> LogoutAlertDialog()
+//            }
+//            true
+//        }
 
 
         // Name in Action Bar
-        supportActionBar?.setTitle("Welcome to SparkLine HR")
+//        supportActionBar?.setTitle("Welcome to SparkLine HR")
 
 
         binding.homeScreenSelfServiceBtn.setOnClickListener{
@@ -127,6 +128,11 @@ class HomeScreenActivity : AppCompatActivity() {
         alertDialog.setMessage("Are you sure you want to Logout?")
 
         alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Yes") { dialog, which ->
+            val sharedPreferences = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE)
+            val editor = sharedPreferences.edit()
+            editor.putString("EMPLOYEE_ID", "")
+            editor.apply()
+
             super.onBackPressed()
             dialog.dismiss()
         }

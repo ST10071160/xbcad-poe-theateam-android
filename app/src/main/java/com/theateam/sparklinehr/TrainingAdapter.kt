@@ -23,7 +23,7 @@ class TrainingAdapter(
     //this will display the training course name back to the user to be selected from the list
     override fun onBindViewHolder(holder: TrainingViewHolder, position: Int) {
         val trainingInfo = trainingList[position]
-        holder.trainingName.setText(trainingInfo.courseName)
+        holder.trainingName.setText(trainingInfo.CourseName)
         holder.itemView.setOnClickListener { onTrainingClick(trainingInfo) }
     }
 

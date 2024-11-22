@@ -123,7 +123,7 @@ class SubmitWeekTimesheetActivity : AppCompatActivity() {
                         writeToFirebase(weekKey, monHours, tueHours, wedHours, thuHours, friHours)
                     }
 
-                    Toast.makeText(this@SubmitWeekTimesheetActivity, "Timesheet submitted", Toast.LENGTH_LONG).show()
+
                 }
             })
         }
@@ -199,6 +199,7 @@ class SubmitWeekTimesheetActivity : AppCompatActivity() {
             Toast.makeText(this, "Timesheet cannot be submitted, work hours more than 50 for the week", Toast.LENGTH_SHORT).show()
         } else if (totalHours < 50 && totalHours > 40) {
             submitOvertime(datePeriod, updatedMon, updatedTue, updatedWed, updatedThu, updatedFri)
+            Toast.makeText(this@SubmitWeekTimesheetActivity, "Overtime successfully submitted", Toast.LENGTH_LONG).show()
         }
     }
 
@@ -220,6 +221,7 @@ class SubmitWeekTimesheetActivity : AppCompatActivity() {
             dbRef.child("Timesheet entry").child(timesheetKey).setValue(entry)
                 .addOnSuccessListener {
                     Log.d("LogTimesheet", "Timesheet successfully recorded!")
+                    Toast.makeText(this@SubmitWeekTimesheetActivity, "Timesheet successfully submitted", Toast.LENGTH_LONG).show()
                 }
                 .addOnFailureListener { exception ->
                     Toast.makeText(this, "Database write failed: ${exception.message}", Toast.LENGTH_SHORT).show()
@@ -229,6 +231,7 @@ class SubmitWeekTimesheetActivity : AppCompatActivity() {
             Toast.makeText(this, "Timesheet cannot be submitted, work hours more than 50 for the week", Toast.LENGTH_SHORT).show()
         } else if (totalHours < 50 && totalHours > 40) {
             submitOvertime(datePeriod, monHours, tueHours, wedHours, thuHours, friHours)
+            Toast.makeText(this@SubmitWeekTimesheetActivity, "Overtime successfully submitted", Toast.LENGTH_LONG).show()
         }
     }
 
@@ -238,7 +241,7 @@ class SubmitWeekTimesheetActivity : AppCompatActivity() {
         val userNum = sharedPreferences.getString("EMPLOYEE_ID", null).toString()
 
 
-        val datePeriod = SimpleDateFormat("dd MMMM yyyy", Locale.getDefault()).format(weekKey.time)
+        val datePeriod = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(weekKey.time)
         val timesheetKey = "${userNum},${datePeriod}"
 
         val database = Firebase.database
@@ -304,7 +307,7 @@ class SubmitWeekTimesheetActivity : AppCompatActivity() {
     }
 
     private fun updateWeekDates(calendar: Calendar) {
-        val dateFormat = SimpleDateFormat("dd MMMM yyyy", Locale.getDefault())
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
         val weekStart = calendar.clone() as Calendar
         weekStart.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY)
 
@@ -372,7 +375,7 @@ class SubmitWeekTimesheetActivity : AppCompatActivity() {
 
 
     private fun getFormattedDate(calendar: Calendar): String {
-        val dateFormat = SimpleDateFormat("dd MMMM yyyy", Locale.getDefault())
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
         return dateFormat.format(calendar.time)
     }
 

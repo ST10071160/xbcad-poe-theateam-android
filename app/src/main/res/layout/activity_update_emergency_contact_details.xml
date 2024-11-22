@@ -74,25 +74,16 @@
                 android:inputType="text"
                 android:padding="12dp" />
 
-            <TextView
-                android:id="@+id/updatePersonalInfoRelationshipHeading"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="25dp"
-                android:text="Relationship:"
-                android:textSize="20sp" />
-
-            <Spinner
-                android:id="@+id/updatePersonalInfoRelationshipSpinner"
+            <EditText
+                android:id="@+id/updatePersonalInfoEmergencyRelationshipEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="25dp"
                 android:backgroundTint="#FFBF8F"
-                android:minHeight="48dp"
+                android:hint="Relationship"
+                android:inputType="text"
                 android:padding="12dp" />
 
             <EditText

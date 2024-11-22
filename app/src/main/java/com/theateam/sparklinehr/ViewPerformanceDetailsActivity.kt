@@ -41,10 +41,11 @@ class ViewPerformanceDetailsActivity : AppCompatActivity() {
         }
 
 
-        binding.viewPerformanceDetailsEmpNumTextView.text = review.empNum
-        binding.viewPerformanceDetailsReviewDateTextView.text = review.reviewDate
-        binding.viewPerformanceDetailsRatingTextView.text = review.performanceRating
-        binding.viewPerformanceDetailsFeedbackTextView.text = review.feedback
+        binding.viewPerformanceDetailsEmpNumTextView.text = review.EmployeeNumber
+        val formattedDate = review.ReviewDate.split("T")[0]
+        binding.viewPerformanceDetailsReviewDateTextView.text = formattedDate
+        binding.viewPerformanceDetailsRatingTextView.text = review.PerformanceRating
+        binding.viewPerformanceDetailsFeedbackTextView.text = review.Feedback
 
     }
 }

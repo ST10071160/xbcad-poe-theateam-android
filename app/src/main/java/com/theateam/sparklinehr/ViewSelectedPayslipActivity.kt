@@ -63,13 +63,13 @@ class ViewSelectedPayslipActivity : AppCompatActivity() {
         binding.viewSelectedPayslipDateOfIssueTextView.text = payslip.issueDate
         binding.viewSelectedPayslipPeriodTextView.text = payslip.payslipPeriod
 
-        val roundedPayslip = String.format("%.2f", payslip.basicSalary.toString())
-        binding.viewSelectedPayslipBasicSalaryValueTextView.text = "R ${roundedPayslip}"
-        binding.viewSelectedPayslipTotalEarningsValueTextView.text = "R ${roundedPayslip}"
+
+        binding.viewSelectedPayslipBasicSalaryValueTextView.text = "R ${payslip.grossSalary}"
+        binding.viewSelectedPayslipTotalEarningsValueTextView.text = "R ${payslip.grossSalary}"
 
         var taxAmount = 0.0
 
-        var yearlysalary = payslip.basicSalary * 12
+        var yearlysalary:Double = (payslip.grossSalary.toInt() * 12).toDouble()
 
         if(yearlysalary > 95750 && yearlysalary < 237100)
         {
@@ -95,7 +95,7 @@ class ViewSelectedPayslipActivity : AppCompatActivity() {
         {
             taxAmount = 251258 + 0.41*(yearlysalary - 857900)
         }
-        else if(payslip.basicSalary > 1817001)
+        else if(yearlysalary > 1817001)
         {
             taxAmount = 251258 + 0.41*(yearlysalary - 857900)
         }
@@ -107,11 +107,15 @@ class ViewSelectedPayslipActivity : AppCompatActivity() {
         val roundedMonthlyTax = String.format("%.2f", monthlyTax)
         binding.viewSelectedPayslipPAYEValueTextView.text = "R $roundedMonthlyTax"
 
-        val uifAmount = Math.round(payslip.basicSalary * payslip.uifPercent)
+        val intUif:Int = payslip.uifPercent.toInt()
+        val doubleUif:Double = intUif.toDouble()/100
+        val uifAmount:Double = (Math.round(payslip.grossSalary.toInt() * doubleUif)).toDouble()
         val roundedUifAmount = String.format("%.2f", uifAmount)
         binding.viewSelectedPayslipUIFValueTextView.text = "R ${roundedUifAmount}"
 
-        val pensionAmount = Math.round(payslip.basicSalary * payslip.pensionPercent)
+        val intPension:Int = payslip.pensionPercent.toInt()
+        val doublePension:Double = intPension.toDouble()/100
+        val pensionAmount = (Math.round(payslip.grossSalary.toInt() * doublePension)).toDouble()
         val roundedPensionAmount = String.format("%.2f", pensionAmount)
         binding.viewSelectedPayslipPensionFundValueTextView.text = "R ${roundedPensionAmount}"
 
@@ -119,7 +123,7 @@ class ViewSelectedPayslipActivity : AppCompatActivity() {
         val roundedTotalDeductions = String.format("%.2f", totalDeductions)
         binding.viewSelectedPayslipTotalDeductionsValueTextView.text = "R ${roundedTotalDeductions}"
 
-        val netPay = payslip.basicSalary - totalDeductions
+        val netPay = payslip.grossSalary.toInt() - totalDeductions
         val roundedNetPay = String.format("%.2f", netPay)
         binding.viewSelectedPayslipNetPayValueTextView.text = "R ${roundedNetPay}"
 
@@ -156,42 +160,82 @@ class ViewSelectedPayslipActivity : AppCompatActivity() {
 
         canvas.drawText("SparkLine", padding, 25f, paint)
 
+        val randomAddress = "38 De la Haye Avenue, Cape Town, 7580"
+        val randomPhoneNumber = "+27 21 123 4567"
+        val email = "sparkline.xbcad@gmail.com"
+
+        canvas.drawText(randomAddress, padding, 50f, paint)
+        canvas.drawText(randomPhoneNumber, padding, 75f, paint)
+        canvas.drawText(email, padding, 100f, paint)
+
         val iconBitMap: Bitmap = BitmapFactory.decodeResource(resources, R.drawable.spark_line_icon_only)
         val appIcon = Bitmap.createScaledBitmap(iconBitMap, 100, 50, true)
-        canvas.drawBitmap(appIcon, 100f, 40f, paint)
+        canvas.drawBitmap(appIcon, 100f, 120f, paint)
 
-        canvas.drawText("Payslip for ${payslip.payslipPeriod}", padding, 120f, paint)
+        canvas.drawText("Payslip for ${payslip.payslipPeriod}", padding, 180f, paint)
 
-        drawLabelAndValue("Employee Name:", payslip.empName, 140f)
-        drawLabelAndValue("Employee Number:", payslip.empNum, 160f)
-        drawLabelAndValue("Position:", payslip.empPos, 180f)
-        drawLabelAndValue("Company:", payslip.company, 200f)
-        drawLabelAndValue("Tax Number:", payslip.taxNum, 220f)
-        drawLabelAndValue("Date of Issue:", payslip.issueDate, 240f)
-        drawLabelAndValue("Payslip Period:", payslip.payslipPeriod, 260f)
+        drawLabelAndValue("Employee Name:", payslip.empName, 200f)
+        drawLabelAndValue("Employee Number:", payslip.empNum, 220f)
+        drawLabelAndValue("Position:", payslip.empPos, 240f)
+        drawLabelAndValue("Company:", payslip.company, 260f)
+        drawLabelAndValue("Tax Number:", payslip.taxNum, 280f)
+        drawLabelAndValue("Date of Issue:", payslip.issueDate, 300f)
+        drawLabelAndValue("Payslip Period:", payslip.payslipPeriod, 320f)
 
-        drawLabelAndValue("Gross Salary:", "R " + payslip.basicSalary.toString(), 310f)
-        drawLabelAndValue("Total Earnings:", "R " + payslip.basicSalary.toString(), 335f)
+        drawLabelAndValue("Gross Salary:", "R " + payslip.grossSalary.toString(), 370f)
+        drawLabelAndValue("Total Earnings:", "R " + payslip.grossSalary.toString(), 395f)
 
-        val taxAmount = payslip.basicSalary * payslip.taxPercent
-        drawLabelAndValue("PAYE (Tax):", "R " + taxAmount.toString(), 385f)
+        var taxAmount = 0.0
 
-        val uifAmount = payslip.basicSalary * payslip.uifPercent
-        drawLabelAndValue("UIF:", "R " + uifAmount.toString(), 405f)
+        var yearlysalary = payslip.grossSalary.toInt() * 12
 
-        val pensionAmount = payslip.basicSalary * payslip.pensionPercent
-        drawLabelAndValue("Pension Fund:", "R " + pensionAmount.toString(), 425f)
+        if (yearlysalary > 95750 && yearlysalary < 237100) {
+            taxAmount = 0.18 * (yearlysalary)
+        } else if (yearlysalary > 237101 && yearlysalary < 370500) {
+            taxAmount = 42678 + 0.26 * (yearlysalary - 237100)
+        } else if (yearlysalary > 370501 && yearlysalary < 512800) {
+            taxAmount = 77362 + 0.31 * (yearlysalary - 370500)
+        } else if (yearlysalary > 512801 && yearlysalary < 673000) {
+            taxAmount = 121475 + 0.36 * (yearlysalary - 512800)
+        } else if (yearlysalary > 673001 && yearlysalary < 857900) {
+            taxAmount = 179147 + 0.39 * (yearlysalary - 673000)
+        } else if (yearlysalary > 857901 && yearlysalary < 1817000) {
+            taxAmount = 251258 + 0.41 * (yearlysalary - 857900)
+        } else if (yearlysalary > 1817001) {
+            taxAmount = 251258 + 0.41 * (yearlysalary - 857900)
+        } else {
+            taxAmount = 0.0
+        }
 
-        val totalDeductions = taxAmount + uifAmount + pensionAmount
-        drawLabelAndValue("Total Deductions:", "R " + totalDeductions.toString(), 475f)
+        val monthlyTax = taxAmount / 12
+        val roundedMonthlyTax = String.format("%.2f", monthlyTax)
+        drawLabelAndValue("PAYE (Tax):", "R " + roundedMonthlyTax.toString(), 445f)
 
-        val netPay = payslip.basicSalary - totalDeductions
-        drawLabelAndValue("Net Pay:", "R " + netPay.toString(), 525f)
+        val intUif: Int = payslip.uifPercent.toInt()
+        val doubleUif: Double = intUif.toDouble() / 100
+        val uifAmount = payslip.grossSalary.toInt() * doubleUif
+        val roundedUifAmount = String.format("%.2f", uifAmount)
+        drawLabelAndValue("UIF:", "R " + roundedUifAmount, 465f)
+
+        val intPension: Int = payslip.pensionPercent.toInt()
+        val doublePension: Double = intPension.toDouble() / 100
+        val pensionAmount = payslip.grossSalary.toInt() * doublePension
+        val roundedPensionAmount = String.format("%.2f", uifAmount)
+        drawLabelAndValue("Pension Fund:", "R " + roundedPensionAmount, 485f)
+
+        val totalDeductions = monthlyTax + uifAmount + pensionAmount
+        val roundedTotalDeductions = String.format("%.2f", totalDeductions)
+        drawLabelAndValue("Total Deductions:", "R " + roundedTotalDeductions, 535f)
+
+        val netPay = payslip.grossSalary.toInt() - totalDeductions
+        val roundedNetPay = String.format("%.2f", netPay)
+        drawLabelAndValue("Net Pay:", "R " + roundedNetPay, 585f)
 
         pdfDocument.finishPage(page)
         val pdfFile = File(outputDir, "employee_payslip_${payslip.payslipPeriod}.pdf")
         pdfDocument.writeTo(FileOutputStream(pdfFile))
         pdfDocument.close()
+
 
         return pdfFile
     }

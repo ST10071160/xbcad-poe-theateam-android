@@ -18,7 +18,7 @@ import com.google.firebase.database.FirebaseDatabase
 
 class UpdateEmergencyContactDetailsActivity : AppCompatActivity() {
     private lateinit var updatedName: EditText
-    private lateinit var updatedRelationship: Spinner
+    private lateinit var updatedRelationship: EditText
     private lateinit var updatedPhone: EditText
     private lateinit var updateButton: Button
     private lateinit var backButton: ImageButton
@@ -35,35 +35,17 @@ class UpdateEmergencyContactDetailsActivity : AppCompatActivity() {
         }
 
         updatedName = findViewById(R.id.updatePersonalInfoEmergencyNameEditText)
-
-         lateinit var selectedItem: String
-
-        updatedRelationship = findViewById(R.id.updatePersonalInfoRelationshipSpinner)
-
-        val spinnerData = listOf("Spouse/Partner", "Parent", "Sibling", "Child", "Other")
-
-        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, spinnerData)
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-
-        updatedRelationship.adapter = adapter
-
-        updatedRelationship.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                selectedItem = parent?.getItemAtPosition(position).toString()
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-            }
-        }
-
+        updatedRelationship = findViewById(R.id.updatePersonalInfoEmergencyRelationshipEditText)
         updatedPhone = findViewById(R.id.updatePersonalInfoEmergencyNumberEditText)
+
+
         updateButton = findViewById(R.id.updatePersonalInfoSaveChangesBtn)
         backButton = findViewById(R.id.back_btn)
 
 
         updateButton.setOnClickListener() {
             val contactName = updatedName.text.toString()
-            val contactRelationship = selectedItem
+            val contactRelationship = updatedRelationship.text.toString()
             val contactPhone = updatedPhone.text.toString()
 
             updateEmergencyContactDetails(contactName, contactRelationship, contactPhone)

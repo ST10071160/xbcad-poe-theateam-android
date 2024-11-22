@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#8000BFFF"
-    android:orientation="vertical"
     tools:context=".ViewPersonalInformationActivity">
 
     <LinearLayout
@@ -14,6 +13,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <!-- Header Bar -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
@@ -45,34 +45,38 @@
                 tools:ignore="RtlCompat" />
         </LinearLayout>
 
+        <!-- Content Area -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:background="@drawable/top_cornered" >
+            android:background="@drawable/top_cornered"
+            android:padding="16dp">
 
+            <!-- Full Name -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:layout_marginEnd="25dp"
-                android:layout_marginTop="25dp"
-                android:layout_marginBottom="25dp"
-                android:orientation="horizontal">
+                android:orientation="vertical"
+                android:layout_marginBottom="20dp"
+                android:gravity="center_horizontal">
 
                 <TextView
                     android:id="@+id/viewPersonalInfoFirstNameHeadingTextView"
-                    android:layout_width="150dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="Full Name:"
-                    android:layout_marginEnd="20dp"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:layout_marginBottom="8dp"
+                    android:textAlignment="center" />
 
                 <TextView
                     android:id="@+id/viewPersonalInfoFirstNameTextView"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textAlignment="center" />
             </LinearLayout>
 
             <View
@@ -81,28 +85,31 @@
                 android:layout_height="4dp"
                 android:background="#FF7F00" />
 
+            <!-- Job Title -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:layout_marginEnd="25dp"
-                android:layout_marginTop="25dp"
-                android:layout_marginBottom="25dp"
-                android:orientation="horizontal">
+                android:orientation="vertical"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:gravity="center_horizontal">
 
                 <TextView
                     android:id="@+id/viewPersonalInfoJobTitleHeadingTextView"
-                    android:layout_width="150dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="Job Title:"
-                    android:layout_marginEnd="20dp"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:layout_marginBottom="8dp"
+                    android:textAlignment="center" />
 
                 <TextView
                     android:id="@+id/viewPersonalInfoJobTitleTextView"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textAlignment="center" />
             </LinearLayout>
 
             <View
@@ -111,28 +118,31 @@
                 android:layout_height="4dp"
                 android:background="#FF7F00" />
 
+            <!-- Work Email -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:layout_marginEnd="25dp"
-                android:layout_marginTop="25dp"
-                android:layout_marginBottom="25dp"
-                android:orientation="horizontal">
+                android:orientation="vertical"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:gravity="center_horizontal">
 
                 <TextView
                     android:id="@+id/viewPersonalInfoWorkEmailHeadingTextView"
-                    android:layout_width="150dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="Work Email:"
-                    android:layout_marginEnd="20dp"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:layout_marginBottom="8dp"
+                    android:textAlignment="center" />
 
                 <TextView
                     android:id="@+id/viewPersonalInfoWorkEmailTextView"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textAlignment="center" />
             </LinearLayout>
 
             <View
@@ -141,28 +151,31 @@
                 android:layout_height="4dp"
                 android:background="#FF7F00" />
 
+            <!-- Phone Number -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:layout_marginEnd="25dp"
-                android:layout_marginTop="25dp"
-                android:layout_marginBottom="25dp"
-                android:orientation="horizontal">
+                android:orientation="vertical"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:gravity="center_horizontal">
 
                 <TextView
                     android:id="@+id/viewPersonalInfoPhoneNumHeadingTextView"
-                    android:layout_width="150dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="Phone Number:"
-                    android:layout_marginEnd="20dp"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:layout_marginBottom="8dp"
+                    android:textAlignment="center" />
 
                 <TextView
                     android:id="@+id/viewPersonalInfoPhoneNumTextView"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textAlignment="center" />
             </LinearLayout>
 
             <View
@@ -173,17 +186,4 @@
         </LinearLayout>
 
     </LinearLayout>
-
-
-    <!-- Floating Action Button at the bottom right -->
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingBtnAdd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="16dp"
-        android:src="@drawable/edit_icon"
-        android:contentDescription="Add new meal"
-        app:backgroundTint="@color/figma_blue"
-        app:fabSize="normal" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

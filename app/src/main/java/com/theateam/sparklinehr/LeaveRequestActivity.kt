@@ -128,6 +128,7 @@ class LeaveRequestActivity : AppCompatActivity() {
             }
             else{
                 writeToFirebase(leaveTypeString, passFrom, passTo, "N/a")
+                Toast.makeText(this, "Leave Request Submitted", Toast.LENGTH_LONG).show()
             }
         }
 
@@ -140,7 +141,7 @@ class LeaveRequestActivity : AppCompatActivity() {
 
 
         val fileName = "$userNum,$fromDate"
-        storageRef = FirebaseStorage.getInstance().getReference("images/$fileName")
+        storageRef = FirebaseStorage.getInstance().getReference("leaverequest-docs/$fileName")
 
         storageRef.putFile(fileUri)
             .addOnSuccessListener { taskSnapshot ->
@@ -235,7 +236,7 @@ class LeaveRequestActivity : AppCompatActivity() {
         val day = c.get(Calendar.DAY_OF_MONTH)
 
         val datePickerDialog = DatePickerDialog(this, { _, theYear, monthOfYear, dayOfMonth ->
-            val formattedDate = "$dayOfMonth-${monthOfYear + 1}-$theYear"
+            val formattedDate = "$theYear-${monthOfYear + 1}-$dayOfMonth"
             textView.setText(formattedDate)
         }, year, month, day)
 

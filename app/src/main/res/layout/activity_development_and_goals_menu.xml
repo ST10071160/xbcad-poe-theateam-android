@@ -76,7 +76,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text="You have 1 course pending"
+                android:text="View Completed Training Courses"
                 android:textColor="#FFFFFF" />
 
             <ImageView
@@ -158,7 +158,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text="Last Evaluated: "
+                android:text="View Performance Evaluations"
                 android:textColor="#FFFFFF" />
 
             <ImageView

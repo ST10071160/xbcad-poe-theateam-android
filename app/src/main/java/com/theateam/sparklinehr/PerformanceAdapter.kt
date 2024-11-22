@@ -23,7 +23,8 @@ class PerformanceAdapter(
     //this will display the performance review date back to the user to be selected from the list
     override fun onBindViewHolder(holder: PerformanceViewHolder, position: Int) {
         val performanceReview = reviewList[position]
-        holder.reviewDate.setText(performanceReview.reviewDate)
+        val formattedDate = performanceReview.ReviewDate.split("T")[0]
+        holder.reviewDate.setText(formattedDate)
         holder.itemView.setOnClickListener { onReviewClick(performanceReview) }
     }
 

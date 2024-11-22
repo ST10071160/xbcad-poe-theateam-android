@@ -79,17 +79,7 @@
             android:theme="@style/splash_screen"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name=".SubmitTimesheetActivity"
-            android:exported="false"
-            android:theme="@style/splash_screen"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
             android:name=".UpdatePersonalInformationActivity"
-            android:exported="false"
-            android:theme="@style/splash_screen"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name=".UpdatePaymentInformationActivity"
             android:exported="false"
             android:theme="@style/splash_screen"
             android:windowSoftInputMode="adjustPan" />
@@ -118,11 +108,6 @@
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
-            android:exported="false"
-            android:theme="@style/splash_screen"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name=".MainActivity"
             android:exported="false"
             android:theme="@style/splash_screen"
             android:windowSoftInputMode="adjustPan" />

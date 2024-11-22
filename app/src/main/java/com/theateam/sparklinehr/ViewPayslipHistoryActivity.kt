@@ -75,7 +75,7 @@ class ViewPayslipHistoryActivity : AppCompatActivity() {
         val userNum = sharedPreferences.getString("EMPLOYEE_ID", null).toString()
 
         // Fetch all payslips for the given employee
-        dbRef.child(userNum).child("Payslip Info").addListenerForSingleValueEvent(object : ValueEventListener {
+        dbRef.child("payslips").child(userNum).addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 if (dataSnapshot.exists()) {
                     // Clear the existing data
