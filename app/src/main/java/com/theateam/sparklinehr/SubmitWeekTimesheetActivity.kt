@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.Spinner
 import android.widget.TextView
@@ -13,6 +14,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.isVisible
 import com.google.firebase.Firebase
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -28,12 +30,12 @@ class SubmitWeekTimesheetActivity : AppCompatActivity() {
     private lateinit var weekDatesTextView: TextView
     private lateinit var submitButton: Button
     private lateinit var dayDateTextViews: List<TextView>
-    private lateinit var mondaySpinner: Spinner
-    private lateinit var tuesdaySpinner: Spinner
-    private lateinit var wednesdaySpinner: Spinner
-    private lateinit var thursdaySpinner: Spinner
-    private lateinit var fridaySpinner: Spinner
-    private lateinit var hoursSpinners: List<Spinner>
+    private lateinit var mondayHours: EditText
+    private lateinit var tuesdayHours: EditText
+    private lateinit var wednesdayHours: EditText
+    private lateinit var thursdayHours: EditText
+    private lateinit var fridayHours: EditText
+    private lateinit var hoursInput: List<EditText>
 
     private val leavePeriods = mutableListOf<Pair<Calendar, Calendar>>()
 
@@ -41,7 +43,7 @@ class SubmitWeekTimesheetActivity : AppCompatActivity() {
     private lateinit var nextWeekButton: ImageButton
     private lateinit var backbtn: ImageButton
 
-    private var timesheet: Timesheet = Timesheet(0, 0, 0, 0, 0)
+    private var timesheet: Timesheet = Timesheet(0.0, 0.0, 0.0, 0.0, 0.0)
 
     private val currentWeek: Calendar = Calendar.getInstance()
     private var displayedWeek: Calendar = Calendar.getInstance()
@@ -64,11 +66,11 @@ class SubmitWeekTimesheetActivity : AppCompatActivity() {
             insets
         }
 
-        mondaySpinner = findViewById(R.id.mondaySpinner)
-        tuesdaySpinner = findViewById(R.id.tuesdaySpinner)
-        wednesdaySpinner = findViewById(R.id.wednesdaySpinner)
-        thursdaySpinner = findViewById(R.id.thursdaySpinner)
-        fridaySpinner = findViewById(R.id.fridaySpinner)
+        mondayHours = findViewById(R.id.mondayHoursTextview)
+        tuesdayHours = findViewById(R.id.tuesdayHoursTextview)
+        wednesdayHours = findViewById(R.id.wednesdayHoursTextview)
+        thursdayHours = findViewById(R.id.thursdayHoursTextview)
+        fridayHours = findViewById(R.id.fridayHoursTextview)
 
 
         // Initialize views
@@ -91,26 +93,53 @@ class SubmitWeekTimesheetActivity : AppCompatActivity() {
             findViewById(R.id.fridayDateTextView)
         )
 
-        hoursSpinners = listOf(
-            findViewById(R.id.mondaySpinner),
-            findViewById(R.id.tuesdaySpinner),
-            findViewById(R.id.wednesdaySpinner),
-            findViewById(R.id.thursdaySpinner),
-            findViewById(R.id.fridaySpinner)
+        hoursInput = listOf(
+            findViewById(R.id.mondayHoursTextview),
+            findViewById(R.id.tuesdayHoursTextview),
+            findViewById(R.id.wednesdayHoursTextview),
+            findViewById(R.id.thursdayHoursTextview),
+            findViewById(R.id.fridayHoursTextview)
         )
 
         setupWeekNavigation()
-        setupSpinners()
+        //setupSpinners()
         loadLeavePeriods()
         updateWeekDates(displayedWeek)
 
 
         submitButton.setOnClickListener {
-            val monHours = mondaySpinner.selectedItem.toString().toInt()
-            val tueHours = tuesdaySpinner.selectedItem.toString().toInt()
-            val wedHours = wednesdaySpinner.selectedItem.toString().toInt()
-            val thuHours = thursdaySpinner.selectedItem.toString().toInt()
-            val friHours = fridaySpinner.selectedItem.toString().toInt()
+            var monHours = 0.0
+            var tueHours = 0.0
+            var wedHours = 0.0
+            var thuHours = 0.0
+            var friHours = 0.0
+
+
+            if(mondayHours.isVisible == true)
+            {
+                monHours = mondayHours.text.toString().toDouble()
+            }
+
+            if(tuesdayHours.isVisible == true)
+            {
+                tueHours = tuesdayHours.text.toString().toDouble()
+            }
+
+            if(wednesdayHours.isVisible == true)
+            {
+                wedHours = wednesdayHours.text.toString().toDouble()
+            }
+
+            if(thursdayHours.isVisible == true)
+            {
+                thuHours = thursdayHours.text.toString().toDouble()
+            }
+
+            if(fridayHours.isVisible == true)
+            {
+                friHours = fridayHours.text.toString().toDouble()
+            }
+
 
             val weekKey = displayedWeek.clone() as Calendar
             weekKey.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY)
@@ -159,7 +188,7 @@ class SubmitWeekTimesheetActivity : AppCompatActivity() {
             })
     }
 
-    private fun updateTimesheet(datePeriod: Calendar, monHours: Int, tueHours: Int, wedHours: Int, thuHours: Int, friHours: Int) {
+    private fun updateTimesheet(datePeriod: Calendar, monHours: Double, tueHours: Double, wedHours: Double, thuHours: Double, friHours: Double) {
 
         val sharedPreferences = applicationContext.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE)
         val userNum = sharedPreferences.getString("EMPLOYEE_ID", null).toString()
@@ -203,7 +232,7 @@ class SubmitWeekTimesheetActivity : AppCompatActivity() {
         }
     }
 
-    private fun writeToFirebase(datePeriod: Calendar, monHours: Int, tueHours: Int, wedHours: Int, thuHours: Int, friHours: Int) {
+    private fun writeToFirebase(datePeriod: Calendar, monHours: Double, tueHours: Double, wedHours: Double, thuHours: Double, friHours: Double) {
 
         val sharedPreferences = applicationContext.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE)
         val userNum = sharedPreferences.getString("EMPLOYEE_ID", null).toString()
@@ -235,7 +264,7 @@ class SubmitWeekTimesheetActivity : AppCompatActivity() {
         }
     }
 
-    private fun submitOvertime(weekKey: Calendar, monHours: Int, tueHours: Int, wedHours: Int, thuHours: Int, friHours: Int) {
+    private fun submitOvertime(weekKey: Calendar, monHours: Double, tueHours: Double, wedHours: Double, thuHours: Double, friHours: Double) {
 
         val sharedPreferences = applicationContext.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE)
         val userNum = sharedPreferences.getString("EMPLOYEE_ID", null).toString()
@@ -262,18 +291,18 @@ class SubmitWeekTimesheetActivity : AppCompatActivity() {
 
 
 
-    private fun setupSpinners() {
-        val hoursAdapter = ArrayAdapter.createFromResource(
-            this,
-            R.array.hours_array,
-            android.R.layout.simple_spinner_item
-        )
-        hoursAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-
-        hoursSpinners.forEach { spinner ->
-            spinner.adapter = hoursAdapter
-        }
-    }
+//    private fun setupSpinners() {
+//        val hoursAdapter = ArrayAdapter.createFromResource(
+//            this,
+//            R.array.hours_array,
+//            android.R.layout.simple_spinner_item
+//        )
+//        hoursAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+//
+//        hoursSpinners.forEach { spinner ->
+//            spinner.adapter = hoursAdapter
+//        }
+//    }
 
     private fun setupWeekNavigation() {
         previousWeekButton.setOnClickListener {
@@ -321,7 +350,7 @@ class SubmitWeekTimesheetActivity : AppCompatActivity() {
             val day = weekStart.clone() as Calendar
             day.add(Calendar.DAY_OF_WEEK, i)
             dayDateTextViews[i].text = dateFormat.format(day.time)
-            hoursSpinners[i].isEnabled = !day.after(Calendar.getInstance()) && !isDateWithinLeavePeriod(day)
+            hoursInput[i].isVisible = !day.after(Calendar.getInstance()) && !isDateWithinLeavePeriod(day)
         }
     }
 
@@ -334,7 +363,7 @@ class SubmitWeekTimesheetActivity : AppCompatActivity() {
         val sharedPreferences = applicationContext.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE)
         val userNum = sharedPreferences.getString("EMPLOYEE_ID", null).toString()
 
-        dbRef.child("Leave Requests").addListenerForSingleValueEvent(object : ValueEventListener {
+        dbRef.child("Approved Leave Requests").addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 leavePeriods.clear()
 
@@ -346,9 +375,9 @@ class SubmitWeekTimesheetActivity : AppCompatActivity() {
                             val startDate = Calendar.getInstance()
                             val endDate = Calendar.getInstance()
 
-                            val dateFormat = SimpleDateFormat("dd-MM-yyy", Locale.getDefault())
-                            startDate.time = dateFormat.parse(leaveRequest.fromDate)!!
-                            endDate.time = dateFormat.parse(leaveRequest.toDate)!!
+                            val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+                            startDate.time = dateFormat.parse(leaveRequest.FromDate)!!
+                            endDate.time = dateFormat.parse(leaveRequest.ToDate)!!
 
                             leavePeriods.add(Pair(startDate, endDate))
                         }
@@ -388,15 +417,15 @@ class SubmitWeekTimesheetActivity : AppCompatActivity() {
 
 
 
-    data class LeaveRequest(val leaveType: String = "",
-                            val fromDate: String = "",
-                            val toDate: String = "",
-                            val document: String = "")
+    data class LeaveRequest(val LeaveType: String = "",
+                            val FromDate: String = "",
+                            val ToDate: String = "",
+                            val Document: String = "")
 
 
-    data class Timesheet(val monHours: Int = 0,
-                         val tueHours: Int = 0,
-                         val wedHours: Int = 0,
-                         val thuHours: Int = 0,
-                         val friHours: Int = 0)
+    data class Timesheet(val monHours: Double = 0.0,
+                         val tueHours: Double = 0.0,
+                         val wedHours: Double = 0.0,
+                         val thuHours: Double = 0.0,
+                         val friHours: Double = 0.0)
 }

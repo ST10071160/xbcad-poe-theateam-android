@@ -97,7 +97,7 @@ class ViewSelectedPayslipActivity : AppCompatActivity() {
         }
         else if(yearlysalary > 1817001)
         {
-            taxAmount = 251258 + 0.41*(yearlysalary - 857900)
+            taxAmount = 644489 + 0.46*(yearlysalary - 1817000)
         }
         else{
             taxAmount = 0.0

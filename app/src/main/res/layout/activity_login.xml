@@ -113,7 +113,7 @@
                     android:background="@drawable/username_border"
                     android:textAlignment="textStart"
                     tools:ignore="SpeakableTextPresentCheck"
-                    />
+                    android:inputType="textPassword"/>
 
                 <Button
                     android:id="@+id/loginPageLoginBtn"

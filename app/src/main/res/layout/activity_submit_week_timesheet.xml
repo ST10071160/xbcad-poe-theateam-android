@@ -110,11 +110,12 @@
                     android:textSize="16sp" />
 
                 <!-- Hours Spinner -->
-                <Spinner
-                    android:id="@+id/mondaySpinner"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:entries="@array/hours_array" />
+                <EditText
+                    android:id="@+id/mondayHoursTextview"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:textSize="16sp"
+                    android:inputType="numberDecimal"/>
             </LinearLayout>
 
             <LinearLayout
@@ -135,11 +136,12 @@
                     android:textSize="16sp" />
 
                 <!-- Hours Spinner -->
-                <Spinner
-                    android:id="@+id/tuesdaySpinner"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:entries="@array/hours_array" />
+                <EditText
+                    android:id="@+id/tuesdayHoursTextview"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:textSize="16sp"
+                    android:inputType="numberDecimal"/>
             </LinearLayout>
 
             <LinearLayout
@@ -160,11 +162,12 @@
                     android:textSize="16sp" />
 
                 <!-- Hours Spinner -->
-                <Spinner
-                    android:id="@+id/wednesdaySpinner"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:entries="@array/hours_array" />
+                <EditText
+                    android:id="@+id/wednesdayHoursTextview"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:textSize="16sp"
+                    android:inputType="numberDecimal"/>
             </LinearLayout>
 
             <LinearLayout
@@ -185,11 +188,12 @@
                     android:textSize="16sp" />
 
                 <!-- Hours Spinner -->
-                <Spinner
-                    android:id="@+id/thursdaySpinner"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:entries="@array/hours_array" />
+                <EditText
+                    android:id="@+id/thursdayHoursTextview"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:textSize="16sp"
+                    android:inputType="numberDecimal"/>
             </LinearLayout>
 
             <LinearLayout
@@ -210,11 +214,12 @@
                     android:textSize="16sp" />
 
                 <!-- Hours Spinner -->
-                <Spinner
-                    android:id="@+id/fridaySpinner"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:entries="@array/hours_array" />
+                <EditText
+                    android:id="@+id/fridayHoursTextview"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:textSize="16sp"
+                    android:inputType="numberDecimal"/>
             </LinearLayout>
 
             <!-- Submit Button -->
