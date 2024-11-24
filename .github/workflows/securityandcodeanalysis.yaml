@@ -21,10 +21,14 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
+      - name: Install Docker for HuskyCI
+        run: |
+          sudo apt-get remove -y docker docker-engine docker.io containerd runc || true
+          curl -fsSL https://get.docker.com -o get-docker.sh
+          sudo sh get-docker.sh
+
       - name: Install HuskyCI Security Scanner
         run: |
-          sudo apt-get update
-          sudo apt-get install -y docker.io
           git clone https://github.com/globocom/huskyci.git
           cd huskyci
           docker-compose up -d
@@ -50,8 +54,6 @@ jobs:
 
       - name: Run Static Code Scan through Lint
         run: ./gradlew lint
-
-
 
   test_pull_request:
     name: Test Pull Requests
