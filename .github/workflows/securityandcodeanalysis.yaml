@@ -1,0 +1,74 @@
+name: Security and Static Code Analysis Workflow (HuskyCI and CircleCI)
+
+on:
+  push:
+    branches: [main, aidan-branch]
+  pull_request:
+    branches: [main, aidan-branch]
+
+jobs:
+  static_analysis:
+    name: Security and Static Code Analysis
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Install HuskyCI Security Scanner
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y docker.io
+          git clone https://github.com/globocom/huskyci.git
+          cd huskyci
+          docker-compose up -d
+
+      - name: Run HuskyCI Security Scan
+        run: |
+          cd huskyci
+          ./huskyci-client scan \
+            --url https://github.com/VCSTDN2024/xbcad7319-poe-the_a_team.git \
+            --author "ST10071160" \
+            --output json > huskyci-report.json
+        env:
+          HUSKYCI_CLIENT_CONFIG: ./huskyci/config.yaml
+
+      - name: Display HuskyCI Report
+        run: cat huskyci/huskyci-report.json
+
+      - name: Upload HuskyCI Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: huskyci-report
+          path: huskyci/huskyci-report.json
+
+      - name: Run Static Code Scan through Lint
+        run: ./gradlew lint
+
+
+
+  test_pull_request:
+    name: Test Pull Requests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Permissions for Gradle
+        run: chmod +x ./gradlew
+
+      - name: Run Unit Tests
+        run: ./gradlew test
