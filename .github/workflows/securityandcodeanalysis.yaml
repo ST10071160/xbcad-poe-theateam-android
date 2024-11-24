@@ -21,24 +21,37 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Install Docker
+      - name: Install Docker for HuskyCI
         run: |
           sudo apt-get remove -y docker docker-engine docker.io containerd runc || true
           curl -fsSL https://get.docker.com -o get-docker.sh
           sudo sh get-docker.sh
-
-      - name: Install Docker Compose
-        run: |
-          DOCKER_COMPOSE_VERSION=2.20.2
-          sudo curl -L "https://github.com/docker/compose/releases/download/v$DOCKER_COMPOSE_VERSION/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-          sudo chmod +x /usr/local/bin/docker-compose
-          docker-compose --version
 
       - name: Install HuskyCI Security Scanner
         run: |
           git clone https://github.com/globocom/huskyci.git
           cd huskyci
           docker-compose up -d
+
+      - name: Create HuskyCI Configuration File
+        run: |
+          echo "
+          apiVersion: v1
+          kind: Config
+          clusters:
+            - name: huskyci-cluster
+              cluster:
+                server: http://127.0.0.1:8888
+          contexts:
+            - name: huskyci-context
+              context:
+                cluster: huskyci-cluster
+          users:
+            - name: huskyci
+              user:
+                token: 'your-auth-token'
+          current-context: huskyci-context
+          " > huskyci/config.yaml
 
       - name: Run HuskyCI Security Scan
         run: |
@@ -78,3 +91,6 @@ jobs:
 
       - name: Permissions for Gradle
         run: chmod +x ./gradlew
+
+      - name: Run Unit Tests
+        run: ./gradlew test
