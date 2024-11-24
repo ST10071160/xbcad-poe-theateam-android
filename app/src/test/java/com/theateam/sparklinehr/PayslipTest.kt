@@ -1,21 +1,18 @@
-import android.graphics.pdf.PdfDocument
-import androidx.test.platform.app.InstrumentationRegistry
+package com.theateam.sparklinehr
+
 import com.google.firebase.database.*
 import junit.framework.TestCase.assertEquals
 import junit.framework.TestCase.assertTrue
 import org.junit.Test
 import org.mockito.Mockito.*
-import java.io.File
-import java.io.FileInputStream
-import java.io.FileOutputStream
 import java.util.concurrent.CountDownLatch
 import java.util.concurrent.TimeUnit
 
-class PayslipTests {
+class PayslipTest {
 
     // Mock FirebaseDatabase and its dependencies
     @Test
-    fun `test payslips are retrieved for the correct user from Firebase`() {
+    fun `testPayslipsAreRetrievedForTheCorrectUserFromFirebase`() {
         val mockDatabase = mock(FirebaseDatabase::class.java)
         val mockDbRef = mock(DatabaseReference::class.java)
         val mockUserRef = mock(DatabaseReference::class.java)
