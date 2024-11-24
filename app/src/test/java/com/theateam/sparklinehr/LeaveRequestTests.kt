@@ -35,30 +35,30 @@ class LeaveRequestTests {
 
     @Test
     fun `test leave request is written to Firebase`() {
-        // Mock Firebase database and task behavior
         val mockChildReference = mock(DatabaseReference::class.java)
         val mockTask = mock(Task::class.java) as Task<Void>
 
-        // Mock child() and setValue()
         `when`(mockDbRef.child("Pending Leave Requests")).thenReturn(mockChildReference)
         `when`(mockChildReference.child("user123,2024-01-01")).thenReturn(mockChildReference)
         `when`(mockChildReference.setValue(any())).thenReturn(mockTask)
 
-        // ArgumentCaptor for OnSuccessListener
+        val latch = CountDownLatch(1)
         val captor = ArgumentCaptor.forClass(OnSuccessListener::class.java) as ArgumentCaptor<OnSuccessListener<Void>>
         `when`(mockTask.addOnSuccessListener(captor.capture())).thenAnswer {
-            captor.value.onSuccess(null) // Trigger success callback
+            captor.value.onSuccess(null) // Trigger the captured OnSuccessListener
+            latch.countDown() // Signal success
             mockTask
         }
 
-        // Call the handler
+
         val leaveRequestHandler = LeaveRequestHandler(mockSharedPreferences, firebaseDatabase)
         leaveRequestHandler.writeToFirebase("sick_leave", "2024-01-01", "2024-01-05", "doc.pdf")
 
-        // Verify interactions
+        latch.await(2, TimeUnit.SECONDS) // Wait for the async operation to complete
+
         verify(mockChildReference).setValue(any())
-        assertNotNull(captor.value) // Ensure the listener was captured and invoked
     }
+
 
 
 }

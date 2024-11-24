@@ -8,6 +8,8 @@ import org.mockito.Mockito.*
 import java.io.File
 import java.io.FileInputStream
 import java.io.FileOutputStream
+import java.util.concurrent.CountDownLatch
+import java.util.concurrent.TimeUnit
 
 class PayslipTests {
 
@@ -53,40 +55,39 @@ class PayslipTests {
         `when`(mockDataSnapshot.exists()).thenReturn(true)
         `when`(mockDataSnapshot.children).thenReturn(listOf(mockChildSnapshot1, mockChildSnapshot2))
 
-        `when`(mockChildSnapshot1.key).thenReturn("April 2024")
         `when`(mockChildSnapshot1.getValue(Payslip::class.java)).thenReturn(mockPayslip1)
-        `when`(mockChildSnapshot2.key).thenReturn("July 2024")
         `when`(mockChildSnapshot2.getValue(Payslip::class.java)).thenReturn(mockPayslip2)
 
+        val latch = CountDownLatch(1)
         doAnswer { invocation ->
             val listener = invocation.arguments[0] as ValueEventListener
             listener.onDataChange(mockDataSnapshot)
+            latch.countDown() // Signal when callback is complete
             null
         }.`when`(mockUserRef).addListenerForSingleValueEvent(any(ValueEventListener::class.java))
 
         val payslipList = mutableListOf<Payslip>()
-        val loadPayslips = {
-            mockUserRef.addListenerForSingleValueEvent(object : ValueEventListener {
-                override fun onDataChange(dataSnapshot: DataSnapshot) {
-                    if (dataSnapshot.exists()) {
-                        for (childSnapshot in dataSnapshot.children) {
-                            val payslip = childSnapshot.getValue(Payslip::class.java)
-                            if (payslip != null) {
-                                payslipList.add(payslip)
-                            }
+        mockUserRef.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    for (childSnapshot in dataSnapshot.children) {
+                        val payslip = childSnapshot.getValue(Payslip::class.java)
+                        if (payslip != null) {
+                            payslipList.add(payslip)
                         }
                     }
                 }
+            }
 
-                override fun onCancelled(error: DatabaseError) {}
-            })
-        }
+            override fun onCancelled(error: DatabaseError) {}
+        })
 
-        loadPayslips()
+        latch.await(2, TimeUnit.SECONDS) // Wait for the async operation to complete
         assertEquals(2, payslipList.size)
         assertTrue(payslipList.contains(mockPayslip1))
         assertTrue(payslipList.contains(mockPayslip2))
     }
+
 
     data class Payslip(
         val company: String = "",

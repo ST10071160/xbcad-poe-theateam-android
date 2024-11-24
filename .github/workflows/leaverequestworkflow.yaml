@@ -1,4 +1,4 @@
-name: Main Github Workflow
+name: Leave Request Workflow
 
 on:
   push:
