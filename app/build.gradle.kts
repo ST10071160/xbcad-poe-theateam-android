@@ -69,6 +69,16 @@ dependencies {
 
     testImplementation(libs.junit)
     testImplementation(libs.testng)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
+    testImplementation(libs.androidx.junit)
+    testImplementation(libs.androidx.espresso.core)
+
+
+
+    testImplementation ("junit:junit:4.13.2")
+    testImplementation ("org.mockito:mockito-core:4.8.0")
+    testImplementation ("org.mockito.kotlin:mockito-kotlin:4.1.0")
+
+    testImplementation ("com.google.firebase:firebase-database:20.2.2")
+
+//    testImplementation 'org.robolectric:robolectric:4.10'
 }
