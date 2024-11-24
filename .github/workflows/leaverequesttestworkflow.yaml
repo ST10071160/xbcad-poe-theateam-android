@@ -29,9 +29,3 @@ jobs:
 
       - name: Run Unit Tests
         run: ./gradlew testDebugUnitTest --tests "com.theateam.sparklinehr.LeaveRequestTest"
-        
-      - name: Debug Test Reports
-      if: failure()
-      run: |
-        echo "Tests failed. Displaying report."
-        cat ${{ github.workspace }}/app/build/reports/tests/testDebugUnitTest/index.html
