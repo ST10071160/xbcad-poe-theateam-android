@@ -2,9 +2,9 @@ name: Security and Static Code Analysis Workflow
 
 on:
   push:
-    branches: [main, aidan-branch]
+    branches: [main]
   pull_request:
-    branches: [main, aidan-branch]
+    branches: [main]
 
 jobs:
   static_analysis:
@@ -21,16 +21,19 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Install GitGuardian CLI
+      - name: Install Python and GitGuardian CLI
         run: |
-          curl -sSL https://www.gitguardian.com/cli | bash
-          ggshield --version
+          sudo apt-get update
+          sudo apt-get install -y python3 python3-pip
+          pip install ggshield
+
+      - name: Validate ggshield Installation
+        run: ggshield --version
 
       - name: Run GitGuardian Security Scan
+        run: ggshield scan repository .
         env:
           GITGUARDIAN_API_KEY: ${{ secrets.GITGUARDIAN_API_KEY }}
-        run: |
-          ggshield secret scan --all
 
       - name: Set Execute Permissions for Gradle Wrapper
         run: chmod +x ./gradlew
