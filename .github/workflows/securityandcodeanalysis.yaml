@@ -23,7 +23,7 @@ jobs:
 
       - name: Install GitGuardian CLI
         run: |
-          curl -sSL https://api.gitguardian.com/cli-install | bash
+          curl -sSL https://api.gitguardian.com/cli | bash
           ggshield --version
 
       - name: Run GitGuardian Security Scan
