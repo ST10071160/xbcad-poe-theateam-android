@@ -27,14 +27,11 @@ jobs:
           sudo apt-get install -y python3 python3-pip
           pip install ggshield
 
-      - name: Validate ggshield Installation
+      - name: Check ggshield Version
         run: ggshield --version
 
-      - name: Validate ggshield Commands
-        run: ggshield secret scan -h
-
       - name: Run GitGuardian Security Scan
-        run: ggshield secret scan --all
+        run: ggshield secret scan repo .
         env:
           GITGUARDIAN_API_KEY: ${{ secrets.GITGUARDIAN_API_KEY }}
 
