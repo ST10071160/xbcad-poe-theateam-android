@@ -29,12 +29,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="10dp"
-            android:layout_marginEnd="50dp"
+            android:gravity="center"
             android:layout_marginBottom="10dp"
             android:text="Performance Reviews"
             android:textAlignment="center"
             android:textColor="#000000"
-            android:textSize="24sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             tools:ignore="RtlCompat" />
     </LinearLayout>
@@ -51,7 +51,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#02A002"
+            android:background="#87a96b"
             android:text="List of Performance Reviews"
             android:textColor="@android:color/white"
             android:padding="8dp"

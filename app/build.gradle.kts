@@ -58,6 +58,7 @@ dependencies {
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation(libs.androidx.monitor)
+    implementation(libs.androidx.junit.ktx)
 
     testImplementation("org.mockito:mockito-core:5.13.0")
 
@@ -79,6 +80,7 @@ dependencies {
     testImplementation ("org.mockito.kotlin:mockito-kotlin:4.1.0")
 
     testImplementation ("com.google.firebase:firebase-database:20.2.2")
+    androidTestImplementation(libs.junit.junit)
 
 //    testImplementation 'org.robolectric:robolectric:4.10'
 }

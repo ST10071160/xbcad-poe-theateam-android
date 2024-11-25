@@ -29,12 +29,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="10dp"
-            android:layout_marginEnd="70dp"
+            android:gravity="center"
             android:layout_marginBottom="10dp"
             android:text="Self-Service Portal"
             android:textAlignment="center"
             android:textColor="#000000"
-            android:textSize="28sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             tools:ignore="RtlCompat" />
     </LinearLayout>
@@ -56,7 +56,7 @@
             android:layout_marginLeft="50dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="50dp"
-            android:text="Welcome Jane Doe!"
+            android:text="Welcome"
             android:textAlignment="center"
             android:textSize="25sp" />
 
@@ -67,10 +67,10 @@
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
             android:layout_marginTop="30dp"
-            android:background="@drawable/square_btn_shape"
+            android:textColor="@color/black"
+            android:background="@drawable/home_screen_selfservice_shape"
             android:backgroundTint="@null"
             android:textAllCaps="false"
-            android:textColor="#FFFFFF"
             android:textSize="20sp"
             android:text="View Personal Information" />
 
@@ -81,27 +81,26 @@
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
             android:layout_marginTop="30dp"
-            android:background="@drawable/square_btn_shape"
+            android:textColor="@color/black"
+            android:background="@drawable/home_screen_selfservice_shape"
             android:backgroundTint="@null"
             android:textAllCaps="false"
-            android:textColor="#FFFFFF"
             android:textSize="20sp"
             android:text="Update Personal Information" />
 
 
         <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/selfServiceViewPayslipInfoBtn"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/square_btn_shape"
-        android:backgroundTint="@null"
-        android:textAllCaps="false"
-        android:textSize="20sp"
-        android:textColor="#FFFFFF"
-        android:text="View Payslip History" />
+            android:id="@+id/selfServiceViewPayslipInfoBtn"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="30dp"
+            android:textColor="@color/black"
+            android:background="@drawable/home_screen_selfservice_shape"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            android:text="View Payslip History" />
 
 
         <androidx.appcompat.widget.AppCompatButton
@@ -111,11 +110,10 @@
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
             android:layout_marginTop="30dp"
-            android:background="@drawable/square_btn_shape"
-            android:backgroundTint="@null"
+            android:textColor="@color/black"
+            android:background="@drawable/home_screen_selfservice_shape"
             android:textAllCaps="false"
             android:textSize="20sp"
-            android:textColor="#FFFFFF"
             android:text="View Pending Requests" />
 
 

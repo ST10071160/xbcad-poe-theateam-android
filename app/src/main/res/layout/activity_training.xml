@@ -29,12 +29,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="10dp"
-            android:layout_marginEnd="50dp"
+            android:gravity="center"
             android:layout_marginBottom="10dp"
             android:text="Training Completed"
             android:textAlignment="center"
             android:textColor="#000000"
-            android:textSize="24sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             tools:ignore="RtlCompat" />
     </LinearLayout>
@@ -51,7 +51,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#FF00FF"
+            android:background="#FF69B4 "
             android:text="List of Training"
             android:textColor="@android:color/white"
             android:padding="8dp"
