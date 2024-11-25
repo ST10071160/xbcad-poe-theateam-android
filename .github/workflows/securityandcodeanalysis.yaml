@@ -27,16 +27,25 @@ jobs:
           sudo apt-get install -y python3 python3-pip
           pip install ggshield
 
-      - name: Check ggshield Version
-        run: ggshield --version
-
-      - name: Run GitGuardian Security Scan
-        run: ggshield secret scan repo .
+      - name: Run GitGuardian Security Scan and Generate Report
+        run: ggshield secret scan repo . --json > gitguardian-report.json
         env:
           GITGUARDIAN_API_KEY: ${{ secrets.GITGUARDIAN_API_KEY }}
+
+      - name: Upload GitGuardian Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: gitguardian-report
+          path: gitguardian-report.json
 
       - name: Set Execute Permissions for Gradle Wrapper
         run: chmod +x ./gradlew
 
-      - name: Run Static Code Scan with Lint
+      - name: Run Static Code Analysis with Lint
         run: ./gradlew lint
+
+      - name: Upload Lint Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: lint-report
+          path: build/reports/lint/**/*
