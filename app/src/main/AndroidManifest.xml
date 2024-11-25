@@ -105,7 +105,8 @@
             android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".HomeScreenActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/splash_screen"/>
         <activity
             android:name=".LoginActivity"
             android:exported="false"

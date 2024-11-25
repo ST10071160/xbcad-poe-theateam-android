@@ -31,11 +31,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="10dp"
+            android:gravity="center"
             android:layout_marginBottom="10dp"
             android:text="Update Personal Information"
             android:textAlignment="center"
             android:textColor="#000000"
-            android:textSize="24sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             tools:ignore="RtlCompat" />
     </LinearLayout>
@@ -56,24 +57,27 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/updatePersonalInfoUpdateContactBtn"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="80dp"
                 android:layout_marginStart="25dp"
                 android:layout_marginEnd="25dp"
-                android:layout_marginBottom="25dp"
+                android:layout_marginBottom="35dp"
                 android:background="@drawable/square_btn_shape"
                 android:backgroundTint="@null"
                 android:padding="16dp"
+                android:textSize="18sp"
                 android:text="Update Contact Details"
                 android:textColor="#FFFFFF" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/updatePersonalInfoUpdateEmergencyContactBtn"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="80dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginStart="25dp"
                 android:layout_marginEnd="25dp"
                 android:background="@drawable/square_btn_shape"
                 android:backgroundTint="@null"
+                android:textSize="18sp"
                 android:padding="16dp"
                 android:text="Update Emergency Contact"
                 android:textColor="#FFFFFF" />

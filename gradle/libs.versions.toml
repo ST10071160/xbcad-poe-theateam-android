@@ -17,6 +17,8 @@ firebaseDatabase = "21.0.0"
 pdfboxAndroid = "2.0.27"
 testng = "6.9.6"
 monitor = "1.7.2"
+junitJunit = "4.12"
+junitKtx = "1.2.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -33,6 +35,8 @@ firebase-storage-ktx = { group = "com.google.firebase", name = "firebase-storage
 firebase-database = { group = "com.google.firebase", name = "firebase-database", version.ref = "firebaseDatabase" }
 testng = { group = "org.testng", name = "testng", version.ref = "testng" }
 androidx-monitor = { group = "androidx.test", name = "monitor", version.ref = "monitor" }
+junit-junit = { group = "junit", name = "junit", version.ref = "junitJunit" }
+androidx-junit-ktx = { group = "androidx.test.ext", name = "junit-ktx", version.ref = "junitKtx" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

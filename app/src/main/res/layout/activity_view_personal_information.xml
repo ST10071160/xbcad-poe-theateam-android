@@ -35,12 +35,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="70dp"
+                android:gravity="center"
                 android:layout_marginBottom="10dp"
                 android:text="Personal Information"
                 android:textAlignment="center"
                 android:textColor="#000000"
-                android:textSize="26sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 tools:ignore="RtlCompat" />
         </LinearLayout>
@@ -66,7 +66,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Full Name:"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:layout_marginBottom="8dp"
                     android:textAlignment="center" />
 
@@ -74,7 +74,7 @@
                     android:id="@+id/viewPersonalInfoFirstNameTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:textStyle="bold"
                     android:textAlignment="center" />
             </LinearLayout>
@@ -99,7 +99,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Job Title:"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:layout_marginBottom="8dp"
                     android:textAlignment="center" />
 
@@ -107,7 +107,7 @@
                     android:id="@+id/viewPersonalInfoJobTitleTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:textStyle="bold"
                     android:textAlignment="center" />
             </LinearLayout>
@@ -123,7 +123,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="18dp"
                 android:layout_marginBottom="20dp"
                 android:gravity="center_horizontal">
 
@@ -132,7 +132,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Work Email:"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:layout_marginBottom="8dp"
                     android:textAlignment="center" />
 
@@ -140,7 +140,7 @@
                     android:id="@+id/viewPersonalInfoWorkEmailTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:textStyle="bold"
                     android:textAlignment="center" />
             </LinearLayout>
@@ -165,7 +165,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Phone Number:"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:layout_marginBottom="8dp"
                     android:textAlignment="center" />
 
@@ -173,7 +173,7 @@
                     android:id="@+id/viewPersonalInfoPhoneNumTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:textStyle="bold"
                     android:textAlignment="center" />
             </LinearLayout>
