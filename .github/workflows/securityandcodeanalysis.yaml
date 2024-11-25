@@ -21,6 +21,9 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
+      - name: Set Execute Permissions for Gradle Wrapper
+          run: chmod +x ./gradlew
+  
       - name: Run Static Code Scan through Lint
         run: ./gradlew lint
 
