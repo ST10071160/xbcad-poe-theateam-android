@@ -71,6 +71,7 @@
                 android:layout_marginTop="25dp"
                 android:layout_marginEnd="25dp"
                 android:backgroundTint="#FFBF8F"
+                android:singleLine="true"
                 android:hint="Phone Number"
                 android:inputType="number"
                 android:padding="12dp" />
@@ -82,6 +83,7 @@
                 android:layout_marginStart="25dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="25dp"
+                android:singleLine="true"
                 android:backgroundTint="#FFBF8F"
                 android:hint="Email"
                 android:inputType="text"
@@ -110,11 +112,11 @@
                 android:layout_marginTop="25dp"
                 android:layout_marginEnd="25dp"
                 android:layout_marginBottom="25dp"
-                android:background="@drawable/square_btn_shape"
-                android:backgroundTint="@null"
+                android:background="@drawable/home_screen_selfservice_shape"
                 android:padding="16dp"
+                android:textSize="18sp"
                 android:text="Save Changes"
-                android:textColor="#FFFFFF" />
+                android:textColor="@color/black" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

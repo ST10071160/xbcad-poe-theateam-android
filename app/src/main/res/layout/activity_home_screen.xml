@@ -45,12 +45,11 @@
             android:padding="10dp"
             android:orientation="vertical">
 
-
             <LinearLayout
                 android:id="@+id/homeScreenSelfServiceBtn"
                 android:layout_width="match_parent"
                 android:layout_height="90dp"
-                android:layout_margin="20dp"
+                android:layout_margin="10dp"
                 android:background="@drawable/home_screen_selfservice_shape"
                 android:orientation="horizontal">
 
@@ -73,16 +72,13 @@
                     android:layout_gravity="center"
                     android:textAlignment="center"
                     />
-
             </LinearLayout>
-
-
 
             <LinearLayout
                 android:id="@+id/homeScreenSubmitTimesheetBtn"
                 android:layout_width="match_parent"
                 android:layout_height="90dp"
-                android:layout_margin="20dp"
+                android:layout_margin="10dp"
                 android:background="@drawable/home_screen_timesheet_shape"
                 android:orientation="horizontal">
 
@@ -94,7 +90,6 @@
                     android:background="@drawable/timesheet"
                     android:scaleType="fitCenter"
                     />
-
 
                 <TextView
                     android:layout_width="match_parent"
@@ -108,13 +103,11 @@
                     />
             </LinearLayout>
 
-
-
             <LinearLayout
                 android:id="@+id/homeScreenLeaveRequestBtn"
                 android:layout_width="match_parent"
                 android:layout_height="90dp"
-                android:layout_margin="20dp"
+                android:layout_margin="10dp"
                 android:background="@drawable/home_screen_leave_shape"
                 android:orientation="horizontal">
 
@@ -126,7 +119,6 @@
                     android:background="@drawable/leave"
                     android:scaleType="fitCenter"
                     />
-
 
                 <TextView
                     android:layout_width="match_parent"
@@ -144,7 +136,7 @@
                 android:id="@+id/homeScreenDevelopmentGoalsBtn"
                 android:layout_width="match_parent"
                 android:layout_height="90dp"
-                android:layout_margin="20dp"
+                android:layout_margin="10dp"
                 android:background="@drawable/home_screen_goals_shape"
                 android:orientation="horizontal">
 
@@ -175,7 +167,7 @@
                 android:id="@+id/homeScreenIncidentFeedbackBtn"
                 android:layout_width="match_parent"
                 android:layout_height="90dp"
-                android:layout_margin="20dp"
+                android:layout_margin="10dp"
                 android:background="@drawable/home_screen_incident_shape"
                 android:orientation="horizontal">
 
@@ -188,7 +180,6 @@
                     android:scaleType="fitCenter"
                     />
 
-
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -200,89 +191,8 @@
                     android:textAlignment="center"
                     />
             </LinearLayout>
-
-
-            <!--            <androidx.appcompat.widget.AppCompatButton-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="80dp"-->
-            <!--                android:layout_gravity="center_horizontal"-->
-            <!--                android:layout_margin="20dp"-->
-            <!--                android:background="@drawable/square_btn_shape"-->
-            <!--                android:backgroundTint="@null"-->
-            <!--                android:text="Self Service Portal"-->
-            <!--                android:textAllCaps="false"-->
-            <!--                android:textColor="#FFFFFF"-->
-            <!--                android:textSize="18sp" />-->
-
-            <!--            <androidx.appcompat.widget.AppCompatButton-->
-            <!--                android:id="@+id/homeScreenSubmitTimesheetBtn"-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="80dp"-->
-            <!--                android:layout_gravity="center_horizontal"-->
-            <!--                android:layout_margin="20dp"-->
-            <!--                android:background="@drawable/square_btn_shape"-->
-            <!--                android:backgroundTint="@null"-->
-            <!--                android:text="Submit Timesheet"-->
-            <!--                android:textAllCaps="false"-->
-            <!--                android:textColor="#FFFFFF"-->
-            <!--                android:textSize="18sp" />-->
-
-            <!--            <androidx.appcompat.widget.AppCompatButton-->
-            <!--                android:id="@+id/homeScreenLeaveRequestBtn"-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="80dp"-->
-            <!--                android:layout_gravity="center_horizontal"-->
-            <!--                android:layout_margin="20dp"-->
-            <!--                android:background="@drawable/square_btn_shape"-->
-            <!--                android:backgroundTint="@null"-->
-            <!--                android:text="Leave Request"-->
-            <!--                android:textAllCaps="false"-->
-            <!--                android:textColor="#FFFFFF"-->
-            <!--                android:textSize="18sp" />-->
-
-            <!--            <androidx.appcompat.widget.AppCompatButton-->
-            <!--                android:id="@+id/homeScreenDevelopmentGoalsBtn"-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="80dp"-->
-            <!--                android:layout_gravity="center_horizontal"-->
-            <!--                android:layout_margin="20dp"-->
-            <!--                android:background="@drawable/square_btn_shape"-->
-            <!--                android:backgroundTint="@null"-->
-            <!--                android:text="Development and Goals"-->
-            <!--                android:textAllCaps="false"-->
-            <!--                android:textColor="#FFFFFF"-->
-            <!--                android:textSize="18sp" />-->
-
-            <!--            <androidx.appcompat.widget.AppCompatButton-->
-            <!--                android:id="@+id/homeScreenIncidentFeedbackBtn"-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="80dp"-->
-            <!--                android:layout_gravity="center_horizontal"-->
-            <!--                android:layout_margin="20dp"-->
-            <!--                android:background="@drawable/square_btn_shape"-->
-            <!--                android:backgroundTint="@null"-->
-            <!--                android:text="Incident and Feedback Reporting"-->
-            <!--                android:textAllCaps="false"-->
-            <!--                android:textColor="#FFFFFF"-->
-            <!--                android:textSize="18sp" />-->
         </LinearLayout>
 
     </ScrollView>
-
-
-
-    <!--    <com.google.android.material.navigation.NavigationView-->
-    <!--        android:id="@+id/navView"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="match_parent"-->
-    <!--        android:layout_gravity="start"-->
-    <!--        android:fitsSystemWindows="true"-->
-    <!--        app:headerLayout="@layout/nav_header"-->
-    <!--        app:menu="@menu/nav_menu"-->
-    <!--        android:background="@color/white"-->
-    <!--        app:itemTextColor="@color/black"-->
-    <!--        app:itemIconTint="@color/black"-->
-    <!--        />-->
-
 
 </LinearLayout>

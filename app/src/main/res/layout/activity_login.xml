@@ -99,6 +99,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_margin="10dp"
+                        android:singleLine="true"
                         android:background="@drawable/username_border"
                         android:textAlignment="textStart"
                         tools:ignore="SpeakableTextPresentCheck" />
@@ -119,6 +120,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_margin="10dp"
+                        android:singleLine="true"
                         android:background="@drawable/username_border"
                         android:textAlignment="textStart"
                         tools:ignore="SpeakableTextPresentCheck"
