@@ -30,8 +30,11 @@ jobs:
       - name: Validate ggshield Installation
         run: ggshield --version
 
+      - name: Validate ggshield Commands
+        run: ggshield secret scan -h
+
       - name: Run GitGuardian Security Scan
-        run: ggshield scan repository .
+        run: ggshield secret scan --all
         env:
           GITGUARDIAN_API_KEY: ${{ secrets.GITGUARDIAN_API_KEY }}
 
