@@ -52,7 +52,10 @@
     <!-- Accent Colors -->
     <color name="web_app_accent_color">#03A9F4</color> <!-- Example: Light Blue for Accent Highlights -->
     <color name="web_app_card_background_color">#FFFFFF</color> <!-- White background -->
-    <color name="web_app_card_border_color">#DDDDDD</color> <!-- Light gray border -->
+    <color name="web_app_card_border_color">#DDDDDD</color>
+    <color name="training_pink">#FF69B4</color>
+    <color name="goals_coral">#ff746c</color>
+    <color name="performance_green">#87a96b</color> <!-- Light gray border -->
 
 
 

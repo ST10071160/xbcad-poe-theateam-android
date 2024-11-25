@@ -33,6 +33,7 @@
             android:layout_marginTop="10dp"
             android:gravity="center"
             android:layout_marginBottom="10dp"
+            android:layout_marginEnd="50dp"
             android:text="Update Personal Information"
             android:textAlignment="center"
             android:textColor="#000000"
@@ -61,12 +62,12 @@
                 android:layout_marginStart="25dp"
                 android:layout_marginEnd="25dp"
                 android:layout_marginBottom="35dp"
-                android:background="@drawable/square_btn_shape"
+                android:background="@drawable/home_screen_selfservice_shape"
                 android:backgroundTint="@null"
                 android:padding="16dp"
                 android:textSize="18sp"
                 android:text="Update Contact Details"
-                android:textColor="#FFFFFF" />
+                android:textColor="@color/black" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/updatePersonalInfoUpdateEmergencyContactBtn"
@@ -75,12 +76,12 @@
                 android:layout_marginTop="30dp"
                 android:layout_marginStart="25dp"
                 android:layout_marginEnd="25dp"
-                android:background="@drawable/square_btn_shape"
+                android:background="@drawable/home_screen_selfservice_shape"
                 android:backgroundTint="@null"
                 android:textSize="18sp"
                 android:padding="16dp"
                 android:text="Update Emergency Contact"
-                android:textColor="#FFFFFF" />
+                android:textColor="@color/black" />
 
         </LinearLayout>
     </ScrollView>

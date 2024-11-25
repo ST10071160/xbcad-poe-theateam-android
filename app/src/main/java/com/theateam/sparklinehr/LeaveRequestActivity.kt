@@ -127,7 +127,8 @@ class LeaveRequestActivity : AppCompatActivity() {
                 }
             }
             else{
-                writeToFirebase(leaveTypeString, passFrom, passTo, "N/a")
+                // Change the N/a to null for firebase retrieval into the webb app
+                writeToFirebase(leaveTypeString, passFrom, passTo, "")
                 Toast.makeText(this, "Leave Request Submitted", Toast.LENGTH_LONG).show()
             }
         }
