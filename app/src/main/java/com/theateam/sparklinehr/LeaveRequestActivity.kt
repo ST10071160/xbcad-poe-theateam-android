@@ -65,8 +65,6 @@ class LeaveRequestActivity : AppCompatActivity() {
             insets
         }
 
-        getLeaveBalance()
-
         if (binding.leaveRequestLeaveTypeSpinner != null) {
 
             val arrayAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, leaveTypesList)
@@ -197,38 +195,10 @@ class LeaveRequestActivity : AppCompatActivity() {
             }
     }
 
-    private fun getLeaveBalance() {
-        val database = FirebaseDatabase.getInstance()
-        val dbRef = database.getReference("SparkLineHR")
 
-        val sharedPreferences = applicationContext.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE)
-        val userNum = sharedPreferences.getString("EMPLOYEE_ID", null).toString()
-
-        dbRef.child("employees_sparkline").child(userNum).child("leavebalance")
-            .addListenerForSingleValueEvent(object : ValueEventListener {
-                override fun onDataChange(dataSnapshot: DataSnapshot) {
-                    val balance = dataSnapshot.getValue(LeaveBalance::class.java)
-                    if (balance != null) {
-
-                        binding.leaveRequestLeaveBalanceTextView.setText("${balance.AnnualDays}")
-
-
-                        Log.d("LeaveBalanceInfo", "Leave Balance info: $balance")
-                    } else {
-                        Log.e("LeaveBalanceInfo", "No data found for key: $userNum")
-                    }
-                }
-
-                override fun onCancelled(error: DatabaseError) {
-                    Log.e("JobInfo", "Failed to get data: ${error.message}")
-                }
-            })
-    }
 
 
     data class LeaveRequest(val leaveType: String, val fromDate: String, val toDate: String, val document: String)
-
-    data class LeaveBalance(val AnnualDays: Int = 0)
 
     private fun showDatePicker(textView: TextView) {
         val c = Calendar.getInstance()

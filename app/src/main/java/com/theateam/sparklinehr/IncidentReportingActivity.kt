@@ -68,7 +68,7 @@ class IncidentReportingActivity : AppCompatActivity() {
                 } else {
                     writeToFirebase(userNum, passTitle, passDesc)
 
-                    Toast.makeText(this, "Goal added", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, "Incident Reported", Toast.LENGTH_LONG).show()
                 }
             }
         }
