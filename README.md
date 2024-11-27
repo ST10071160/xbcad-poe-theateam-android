@@ -117,9 +117,9 @@ The user can then log into the app using credentials provided by HR when the app
 
 - **YouTube Links:**
 
-	Android App Demonstration Video: 
+	Android App Demonstration Video: https://youtu.be/kR5jqtYVerQ
 
-	API and Web App Demonstration Video:  
+	API and Web App Demonstration Video:  https://youtu.be/wh2zRh5yZTw
 
 
 
