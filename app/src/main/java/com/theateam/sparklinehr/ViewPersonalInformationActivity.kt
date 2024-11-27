@@ -40,6 +40,7 @@ class ViewPersonalInformationActivity : AppCompatActivity() {
         getJobTitle()
     }
 
+    //this will retrieve all employee info in order to display the employee's name, email, and phone number back to them
     private fun getEmployeeInfo() {
         val database = FirebaseDatabase.getInstance()
         val dbRef = database.getReference("SparkLineHR")
@@ -71,6 +72,7 @@ class ViewPersonalInformationActivity : AppCompatActivity() {
     }
 
 
+    //this method will get only the job title of the current user, due to the way that the storage is formatted, a separate method was required for this
     private fun getJobTitle() {
         val database = FirebaseDatabase.getInstance()
         val dbRef = database.getReference("SparkLineHR")

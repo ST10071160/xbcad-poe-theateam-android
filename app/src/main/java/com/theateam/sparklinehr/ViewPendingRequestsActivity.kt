@@ -64,6 +64,7 @@ class ViewPendingRequestsActivity : AppCompatActivity() {
 
 
 
+    //this will load all of the user's overtime requests that have not yet been accepted or declined into the recycler view
     private fun loadOvertimeRequests() {
         val database = FirebaseDatabase.getInstance()
         val dbRef = database.getReference("SparkLineHR")
@@ -112,6 +113,7 @@ class ViewPendingRequestsActivity : AppCompatActivity() {
 
 
 
+    //this will load all of the pending leave requests that have not been either accepted or declined into a separate recycler view
     private fun loadLeaveRequests() {
         val database = FirebaseDatabase.getInstance()
         val dbRef = database.getReference("SparkLineHR")

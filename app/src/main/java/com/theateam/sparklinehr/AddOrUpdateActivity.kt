@@ -103,6 +103,7 @@ class AddOrUpdateActivity : AppCompatActivity() {
     }
 
 
+    //this method will load the details of the goal that has been selected by the user by searching for the goal name
     private fun loadGoal() {
         val database = FirebaseDatabase.getInstance()
         val dbRef = database.getReference("SparkLineHR")
@@ -150,6 +151,7 @@ class AddOrUpdateActivity : AppCompatActivity() {
 
 
 
+    //this method will update the goals record based on the details that have been entered by the user if they wish to update
     private fun updateGoals(goalName: String, dateAdded: String, dateAchieveBy: String, goalDesc: String) {
         val sharedPreferences = applicationContext.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE)
         val userNum = sharedPreferences.getString("EMPLOYEE_ID", null).toString()
@@ -194,6 +196,7 @@ class AddOrUpdateActivity : AppCompatActivity() {
 
 
 
+    //this will write the goal details to the database if the user chooses to add a new goal
     private fun writeToFirebase(goalName: String, dateAdded: String, dateAchieveBy: String, goalDesc: String) {
 
         val sharedPreferences = applicationContext.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE)
@@ -222,6 +225,7 @@ class AddOrUpdateActivity : AppCompatActivity() {
                     val goalDesc: String = "")
 
 
+    // this is the code to show the date picker pop up
     private fun showDatePicker(textView: TextView) {
         val c = Calendar.getInstance()
         val year = c.get(Calendar.YEAR)

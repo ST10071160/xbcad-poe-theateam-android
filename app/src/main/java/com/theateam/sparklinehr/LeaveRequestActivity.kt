@@ -134,6 +134,7 @@ class LeaveRequestActivity : AppCompatActivity() {
     }
 
 
+    //this will create the leave request object and store the entered file into the firebase cloud storage
     private fun createLeaveReq(leaveType: String, fromDate: String, toDate: String) {
         val sharedPreferences = applicationContext.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE)
         val userNum = sharedPreferences.getString("EMPLOYEE_ID", null)
@@ -159,6 +160,7 @@ class LeaveRequestActivity : AppCompatActivity() {
             }
     }
 
+    //this method will bring up the file selection screen in the user's phone
     private fun selectDocument() {
         val intent = Intent()
         intent.type = "*/*"
@@ -166,6 +168,7 @@ class LeaveRequestActivity : AppCompatActivity() {
         startActivityForResult(intent, 100)
     }
 
+    //this will get the fileUri information based on what the user has selected
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
@@ -174,6 +177,7 @@ class LeaveRequestActivity : AppCompatActivity() {
         }
     }
 
+    //this will write the leave request to the Pending Leave Requests table in the firebase realtime database, and will include either a link to the document in the cloud storage, or the label "N/a"
     private fun writeToFirebase(leaveType: String, fromDate: String, toDate: String, document: String) {
 
         val sharedPreferences = applicationContext.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE)

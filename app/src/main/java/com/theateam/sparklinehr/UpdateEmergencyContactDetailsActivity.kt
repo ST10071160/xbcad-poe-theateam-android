@@ -58,6 +58,7 @@ class UpdateEmergencyContactDetailsActivity : AppCompatActivity() {
 
 
 
+    //this method will update specific values in the database based on the changes to the emergency contact that the user makes in the app
     fun updateEmergencyContactDetails(contactName: String, contactRelationship: String, contactPhone: String) {
         val database = FirebaseDatabase.getInstance()
         val dbRef = database.getReference("SparkLineHR")

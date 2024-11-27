@@ -51,6 +51,7 @@ class ChangePasswordActivity : AppCompatActivity() {
     }
 
 
+    //this method will call the API to change the password to the value that the user has entered
     private fun changePassword(employeeId: String, newPassword: String) {
         val changePasswordRequest = PasswordChangeRequest(employeeId, newPassword)
 

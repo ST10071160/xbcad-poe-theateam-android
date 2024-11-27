@@ -69,6 +69,7 @@ class TrainingActivity : AppCompatActivity() {
 
 
 
+    //this method will load all of the training objects that are related to the current user from the firebase
     private fun loadTraining() {
         val database = FirebaseDatabase.getInstance()
         val dbRef = database.getReference("SparkLineHR")

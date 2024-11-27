@@ -66,6 +66,7 @@ class ViewPayslipHistoryActivity : AppCompatActivity() {
     }
 
 
+    //this method will load all of the payslip objects related to the current user from the firebase and display it in a list
     private fun loadPayslips() {
         val database = FirebaseDatabase.getInstance()
         val dbRef = database.getReference("SparkLineHR")

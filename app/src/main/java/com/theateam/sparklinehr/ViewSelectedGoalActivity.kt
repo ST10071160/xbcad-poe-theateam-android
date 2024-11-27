@@ -63,6 +63,7 @@ class ViewSelectedGoalActivity : AppCompatActivity() {
     }
 
 
+    //this will retrieve the goal details for the specific goal that was selected by the user, and will populate the goal information with these values
     private fun loadGoal() {
         val database = FirebaseDatabase.getInstance()
         val dbRef = database.getReference("SparkLineHR")

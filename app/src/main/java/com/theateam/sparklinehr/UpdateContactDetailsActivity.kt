@@ -55,6 +55,7 @@ class UpdateContactDetailsActivity : AppCompatActivity() {
 
 
 
+    //this will update the specific fields related to user contacts based on what has been entered by the user
     fun updateUserContactDetails(phoneNo: String, email: String, address: String) {
         val database = FirebaseDatabase.getInstance()
         val dbRef = database.getReference("SparkLineHR")

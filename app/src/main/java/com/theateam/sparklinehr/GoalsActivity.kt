@@ -80,6 +80,7 @@ class GoalsActivity : AppCompatActivity() {
 
     }
 
+    //this method will remove the selected goal from the database, and remove the goal from the list displayed
     private fun removeGoal(goal: String) {
         val database = FirebaseDatabase.getInstance()
         val dbRef = database.getReference("SparkLineHR")
@@ -101,6 +102,7 @@ class GoalsActivity : AppCompatActivity() {
     }
 
 
+    //this will load all goals that are linked to the currently logged in user, and display them in a recycler view as a list
     private fun loadGoals() {
         val database = FirebaseDatabase.getInstance()
         val dbRef = database.getReference("SparkLineHR")

@@ -76,6 +76,7 @@ class IncidentReportingActivity : AppCompatActivity() {
     }
 
 
+    //this method will write the incident report to the database and will set the userNum to either a random number, or to the employee number
     private fun writeToFirebase(key: String, passTitle: String, passDesc: String) {
 
         val currDate = LocalDate.now()

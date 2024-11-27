@@ -71,6 +71,7 @@ class PerformanceActivity : AppCompatActivity() {
 
 
 
+    //this will load a list of performance reviews that are relevant to the logged in user and display in a list
     private fun loadReviews() {
         val database = FirebaseDatabase.getInstance()
         val dbRef = database.getReference("SparkLineHR")
@@ -90,7 +91,7 @@ class PerformanceActivity : AppCompatActivity() {
                     for (childSnapshot in dataSnapshot.children) {
                         val key = childSnapshot.key
                         if (key != null && key.startsWith(userNum!!)) {
-                            // Get the performance review data for this key
+                            // Get the performance review data for this current user
                             val review = childSnapshot.getValue(PerformanceReview::class.java)
                             if (review != null) {
                                 reviewList.add(review)
@@ -101,7 +102,6 @@ class PerformanceActivity : AppCompatActivity() {
                         }
                     }
 
-                    // Notify the adapter to update the UI
                     adapter.notifyDataSetChanged()
                     Log.d("FIREBASE_SUCCESS", "Reviews fetched successfully: $reviewList")
                 } else {

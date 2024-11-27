@@ -47,6 +47,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
 
+    //this method will access the login api, and will check to see if the entered details are correct, and will log the user in to the app
     private fun login(employeeId: String, password: String) {
         val loginRequest = LoginRequest(employeeId, password)
 

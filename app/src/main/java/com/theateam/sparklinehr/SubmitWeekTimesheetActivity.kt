@@ -159,6 +159,7 @@ class SubmitWeekTimesheetActivity : AppCompatActivity() {
     }
 
 
+    //this method will check for timesheets that already exist for the current user in the timesheets database in firebase
     private fun checkExistingTimesheet(datePeriod: Calendar, callback: TimesheetCheckCallback) {
         val database = FirebaseDatabase.getInstance()
         val dbRef = database.getReference("SparkLineHR")
@@ -188,6 +189,7 @@ class SubmitWeekTimesheetActivity : AppCompatActivity() {
             })
     }
 
+    //this method will update the timesheet entered if there is already one existing for the chosen week, and will add the newly entered hours to the existing values
     private fun updateTimesheet(datePeriod: Calendar, monHours: Double, tueHours: Double, wedHours: Double, thuHours: Double, friHours: Double) {
 
         val sharedPreferences = applicationContext.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE)
@@ -232,6 +234,7 @@ class SubmitWeekTimesheetActivity : AppCompatActivity() {
         }
     }
 
+    //this method will run when the user submits a new timesheet for a week, and the hours for that week are less than 40
     private fun writeToFirebase(datePeriod: Calendar, monHours: Double, tueHours: Double, wedHours: Double, thuHours: Double, friHours: Double) {
 
         val sharedPreferences = applicationContext.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE)
@@ -264,6 +267,7 @@ class SubmitWeekTimesheetActivity : AppCompatActivity() {
         }
     }
 
+    //this method will submit the timesheet information entered to the Overtime Requests table in firebase, to be accessed by the web app
     private fun submitOvertime(weekKey: Calendar, monHours: Double, tueHours: Double, wedHours: Double, thuHours: Double, friHours: Double) {
 
         val sharedPreferences = applicationContext.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE)
@@ -290,20 +294,7 @@ class SubmitWeekTimesheetActivity : AppCompatActivity() {
 
 
 
-
-//    private fun setupSpinners() {
-//        val hoursAdapter = ArrayAdapter.createFromResource(
-//            this,
-//            R.array.hours_array,
-//            android.R.layout.simple_spinner_item
-//        )
-//        hoursAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-//
-//        hoursSpinners.forEach { spinner ->
-//            spinner.adapter = hoursAdapter
-//        }
-//    }
-
+    //this method will allow the weeks to be changed when the previous and next week buttons are clicked
     private fun setupWeekNavigation() {
         previousWeekButton.setOnClickListener {
             changeWeek(-1)
@@ -314,12 +305,14 @@ class SubmitWeekTimesheetActivity : AppCompatActivity() {
         updateWeekNavigationButtons()
     }
 
+    //this will change the dates being displayed to the user for which week their timesheet submission will be for
     private fun changeWeek(offset: Int) {
         displayedWeek.add(Calendar.WEEK_OF_YEAR, offset)
         updateWeekDates(displayedWeek)
         updateWeekNavigationButtons()
     }
 
+    //this will check whether the user is allowed to go to the next week or not based on when the current date is
     private fun updateWeekNavigationButtons() {
         // Set displayedWeek's time to the start of the week for accurate comparison
         val startOfDisplayedWeek = displayedWeek.clone() as Calendar
@@ -335,6 +328,7 @@ class SubmitWeekTimesheetActivity : AppCompatActivity() {
         previousWeekButton.isEnabled = true
     }
 
+    //this method will update the dates of the text views that tell the user which date each number of hours entered will link to
     private fun updateWeekDates(calendar: Calendar) {
         val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
         val weekStart = calendar.clone() as Calendar
@@ -356,6 +350,7 @@ class SubmitWeekTimesheetActivity : AppCompatActivity() {
 
 
 
+    //this method will load all leave periods from the firebase that are related to the current user to use for later comparison
     private fun loadLeavePeriods() {
         val database = Firebase.database
         val dbRef = database.getReference("SparkLineHR")
@@ -392,6 +387,7 @@ class SubmitWeekTimesheetActivity : AppCompatActivity() {
         })
     }
 
+    //this method will check if any dates of timesheet values are within any leave periods that are linked to the current user
     private fun isDateWithinLeavePeriod(date: Calendar): Boolean {
         // Check if the given date falls within any leave period
         return leavePeriods.any { leavePeriod ->
@@ -402,12 +398,13 @@ class SubmitWeekTimesheetActivity : AppCompatActivity() {
 
 
 
-
+    //this method will get a formatted date based on what the calendar is saying for the current week.
     private fun getFormattedDate(calendar: Calendar): String {
         val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
         return dateFormat.format(calendar.time)
     }
 
+    //this method will be used to get the timesheet key for whichever date range is currently selected by the user
     private fun getTimesheetKey(userNum: String, datePeriod: Calendar): String {
         val formattedDate = getFormattedDate(datePeriod)
         return "$userNum,$formattedDate"
